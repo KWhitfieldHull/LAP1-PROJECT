@@ -1,0 +1,26 @@
+#mainPageButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 576px) {
+  .headerImg {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerImg {
+    width: 25%;
+  }
+
+  #mainPageButtons {
+    flex-direction: column;
+  }
+
+  #mainPageButtons a {
+    width: 100%;
+    margin: .5em 0;
+  }
+}
