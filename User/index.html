@@ -51,13 +51,85 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-lg-4 col-md-4" id="mainPageButtons">
-          <a class="btn btn-secondary btn-lg rounded-0" href="./quiz.html" id="StartQuizButton">Start Quiz</a>
-          <a class="btn btn-secondary btn-lg rounded-0" href="./info.html" id="RandomQuestionButton">Random</a>
+          <a class="btn btn-secondary btn-lg rounded-0" id="startQuizButton">Start Quiz</a>
+          <a class="btn btn-secondary btn-lg rounded-0" id="randomQuestionButton">Random</a>
         </div>
         <div class="col-md-4"></div>
       </div>
     </section>
     <!-- End of Main Page -->
+
+    
+    <!-- Quiz Block -->
+    <section id="questionBlock" style="display:none">
+      <div class="row">
+        <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h3 class="question">Who was the English king that was crowned in Westminster Abbey in 1066? <span id="currentQuestionNumber">#1</span> <span id="questionNumber">(1/10)</span></h3>
+            <div id="answersList" class="my-4 h5">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="answer" id="answer1" checked>
+                <label class="form-check-label" for="answer1">
+                  answer
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="answer" id="answer2" checked>
+                <label class="form-check-label" for="answer2">
+                  answer
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="answer" id="answer3" checked>
+                <label class="form-check-label" for="answer3">
+                  answer
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="answer" id="answer4" checked>
+                <label class="form-check-label" for="answer4">
+                  answer
+                </label>
+              </div>
+            </div>
+            <div class="text-center"><button type="button" class="btn btn-info w-25">Check</button></div>
+          </div>
+        <div class="col-md-3"></div>
+      </div>
+    </section>
+    <!-- End of Quiz Block -->
+   <!-- Information Block -->
+    <section id="informationBlock" style="display: none;">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2"><img id="informationBlockImg" src="assests/jacquard.jpg" class="img-fluid"></div>
+        <div class="col-md-4">
+          <h3 id="informationBlockHeading">Joseph Marie Jacquard</h3>
+          <p id="informationBlockText">Joseph Marie Charles dit (called or nicknamed) Jacquard (French: [ʒakaʁ]; 7 July 1752 – 7 August 1834) was a French weaver and merchant. He played an important role in the development of the earliest programmable loom (the "Jacquard loom"), which in turn played an important role in the development of other programmable machines, such as an early version of digital compiler used by IBM to develop the modern day computer...</p>
+          <a id="informationBlockLink" href="#">Visit Wikipedia for more info ›</a>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </section>
+    <!-- End of Information Block -->
+
+    <!-- Quiz Results -->
+    <section class="quizResults" style="display:none">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <img src="assests/jacquard.jpg" alt="" class="img-fluid">
+            <p class="lead">Quiz Passed!</p>
+            <p>Congratulation, Username! You answered 9/10 question</p>
+            <button type="button" class="btn btn-info" id="retakeTheQuiz">Retake The Quiz</button>
+
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </section>
+    <!-- End of Quiz Results -->
   </div>
 </main>
 
