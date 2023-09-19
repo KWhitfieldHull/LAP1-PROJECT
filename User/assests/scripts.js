@@ -1,30 +1,28 @@
-
 const enterNameBlock = document.querySelector("#enterNameBlock");
 const enterNameBlockInput = document.querySelector("#enterNameBlock .enterNameBlockInputBlock");
 const enterNameBlockButton = document.querySelector("#enterNameBlock button");
 const MainPageButtonsBlock = document.querySelector("#mainPageButtonsBlock");
-const mainPageBlock = document.querySelector('#mainPageBlock')
 const startQuizButton = document.querySelector('#startQuizButton')
 const questionBlock = document.querySelector('#questionBlock')
 const checkButton = document.querySelector('#checkButton')
 const quizResults = document.querySelector('#quizResults')
-const currentQuestionNumber = document.querySelector('#currentQuestionNumber')
 const questionNumberSpan = document.querySelector('#questionNumberIterator')
 const quizResultsText = document.querySelector('#quizResultsText')
 let allCheckBoxes = document.querySelectorAll('.form-check-input')
 let informationBlock = document.querySelector('#informationBlock')
-let checkButtonBlock = document.querySelector('#checkButtonBlock')
 let labels = document.querySelectorAll('.form-check-label')
 const nextButton = document.querySelector('#nextButton')
 const quizResultsImg = document.querySelector('#quizResultsImg')
 const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
+const yourName = document.querySelector('#yourName')
+const helpButton = document.querySelector("#helpButton")
+
 
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
 const modernQuiz = document.querySelector('#modernQuiz')
-const helpButton = document.querySelector("#helpButton")
 
 let questionArr = []
 let currentQuestion;
@@ -34,13 +32,10 @@ let result = 0;
 let yesOrNo;
 let currentCategory
 
-
-let answer1, answer2, answer3, answer4
-answer1 = document.querySelector("#a1")
-answer2 = document.querySelector("#a2")
-answer3 = document.querySelector("#a3")
-answer4 = document.querySelector("#a4")
-
+let answer1 = document.querySelector("#a1")
+let answer2 = document.querySelector("#a2")
+let answer3 = document.querySelector("#a3")
+let answer4 = document.querySelector("#a4")
 
 const fetchQuestionData = async section => {
   currentCategory = section;
@@ -49,46 +44,60 @@ const fetchQuestionData = async section => {
     const response = await fetch(`http://localhost:3000/questions/${section}`)
     const data = await response.json()
     //current sections questions are pushed to an array so we can display them
-    data.forEach(element => {
-      questionArr.push(element)
-    });
+    data.forEach(element => questionArr.push(element));
     displayQuestion(questionArr)
   } catch (err) {
     console.error(err)
   }
 }
+
+//One of three categories
+const categoryQuiz = (element, section) => {
+  element.addEventListener('click', (e) => {
+    e.preventDefault()
+    startQuiz(section)
+    categoriesBlock.style.display = 'none';
+    quizResults.style.display = 'none'
+    questionBlock.style.display = 'block'
+  })
+}
+categoryQuiz(medievalQuiz, 'section1')
+categoryQuiz(revolutionsQuiz, 'section2')
+categoryQuiz(modernQuiz, 'section3')
+
+//Check is name already filled in
+window.addEventListener('load', () => {
+  if (localStorage.getItem('studentsName')) {
+    enterNameBlock.style.display = 'none'
+    showQuizButtons()
+    document.querySelector("#inputName").value = '';
+  } else {
+    enterNameBlock.style.display = 'block'
+  }
+
+})
+
+//Show two main Quiz buttons
+const showQuizButtons = () => {
+  let resetName = document.createElement("a")
+  MainPageButtonsBlock.style.display = 'block';
+  MainPageButtonsBlock.style.animation = "fade-in 1s forwards";
+  enterNameBlock.style.display = 'none';
+  yourName.textContent = `Hello, ${localStorage.getItem('studentsName')}!`
+  resetName.innerHTML = ` (<a href="." id='changeNameLink'>change</a>)`
+  yourName.appendChild(resetName)
+  document.querySelector('#changeNameLink').addEventListener('click', () => {
+    localStorage.removeItem('studentsName')
+  })
+}
+
+//Start Quiz button
 startQuizButton.addEventListener('click', fetchQuestionData('all'))
-
-//medieval
-medievalQuiz.addEventListener('click', (e) => {
-  e.preventDefault()
-  fetchQuestionData('section1')
-  categoriesBlock.style.display = 'none';
-  quizResults.style.display = 'none'
-  questionBlock.style.display = 'block'
-})
-
-//revolutions
-revolutionsQuiz.addEventListener('click', (e) => {
-  e.preventDefault()
-  fetchQuestionData('section2')
-  categoriesBlock.style.display = 'none';
-  quizResults.style.display = 'none'
-  questionBlock.style.display = 'block'
-})
-
-//modern questions
-modernQuiz.addEventListener('click', (e) => {
-  e.preventDefault()
-  fetchQuestionData('section3')
-  categoriesBlock.style.display = 'none';
-  quizResults.style.display = 'none'
-  questionBlock.style.display = 'block'
-})
 
 function startQuiz(section) {
   fetchQuestionData(section)
 }
+//Random answers order
 const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
 
 //display question
@@ -131,19 +140,19 @@ const doesTagMatchCriteria = (jsonObject, searchCriteria) => {
 }
 helpButton.addEventListener('click', (e) => {
 
-//get current question tag, open wiki to correct page
-if(doesTagMatchCriteria(currentQuestion, "medieval")){
-  helpButton.href="https://en.wikipedia.org/wiki/Middle_Ages"
-  console.log("here")
-} else if(doesTagMatchCriteria(currentQuestion, "revolutions")){
-  helpButton.href="https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
-} else if(doesTagMatchCriteria(currentQuestion, "world_war_1")){
-  helpButton.href="https://en.wikipedia.org/wiki/World_War_I"
-} else if(doesTagMatchCriteria(currentQuestion, "world_war_2")) {
-  helpButton.href="https://en.wikipedia.org/wiki/World_War_II"
-} else{
-  helpButton.href= '#'
-}
+  //get current question tag, open wiki to correct page
+  if (doesTagMatchCriteria(currentQuestion, "medieval")) {
+    helpButton.href = "https://en.wikipedia.org/wiki/Middle_Ages"
+    console.log("here")
+  } else if (doesTagMatchCriteria(currentQuestion, "revolutions")) {
+    helpButton.href = "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+  } else if (doesTagMatchCriteria(currentQuestion, "world_war_1")) {
+    helpButton.href = "https://en.wikipedia.org/wiki/World_War_I"
+  } else if (doesTagMatchCriteria(currentQuestion, "world_war_2")) {
+    helpButton.href = "https://en.wikipedia.org/wiki/World_War_II"
+  } else {
+    helpButton.href = '#'
+  }
 })
 
 //deselect checkboxes
@@ -156,8 +165,6 @@ const deselectCheckboxes = () => {
   });
   allCheckBoxes[0].checked = true
 }
-//Random answers order
-
 
 //Question Iterator
 const doTheQuiz = () => {
@@ -198,6 +205,7 @@ startQuizButton?.addEventListener('click', () => {
   mainPageButtonsBlock.style.display = 'none';
   quizResults.style.display = 'none'
   questionBlock.style.display = 'block'
+  questionBlock.style.animation = "fade-in 1s forwards";
 })
 
 //Results page
@@ -205,6 +213,7 @@ const showResults = () => {
   const name = localStorage.getItem('studentsName');
   console.log(name)
   if (result >= 7) {
+    quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
@@ -225,21 +234,22 @@ retakeTheQuiz.addEventListener('click', () => {
 })
 
 //Design issues
+let alert = document.createElement("span");
 enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the element exists, and if it does not exist the element is skipped (maybe)
   e.preventDefault();
   let name = document.querySelector("#inputName").value
+  alert.textContent = ''
   if (document.querySelector("#inputName").value == '') {
-    let alert = document.createElement("span");
     alert.style.color = 'red'
     alert.textContent = 'Write your name please!'
     enterNameBlockInput.appendChild(alert)
   } else {
     localStorage.setItem("studentsName", name);
-    MainPageButtonsBlock.style.display = 'block';
-    enterNameBlock.style.display = 'none';
+    showQuizButtons()
     document.querySelector("#inputName").value = '';
   }
 })
+
 ChooseCategoryButton.addEventListener('click', () => {
   categoriesBlock.style.display = 'block';
   MainPageButtonsBlock.style.display = 'none';
@@ -251,5 +261,4 @@ module.exports = {
   doTheQuiz,
   startQuiz,
   showQuiz
-
 }
