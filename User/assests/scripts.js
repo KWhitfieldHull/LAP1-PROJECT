@@ -6,103 +6,84 @@ const MainPageButtonsBlock = document.querySelector("#mainPageButtonsBlock");
 const mainPageBlock = document.querySelector('#mainPageBlock')
 const startQuizButton = document.querySelector('#startQuizButton')
 const questionBlock = document.querySelector('#questionBlock')
+const checkButton = document.querySelector('#checkButton')
+const quizResults = document.querySelector('#quizResults')
+const currentQuestionNumber = document.querySelector('#currentQuestionNumber')
+const questionNumberSpan = document.querySelector('#questionNumberIterator')
 
+let questionArr = []
+let currentQuestion;
+let questionNumber = 1;
+let correctAnswer;
 
-const questionArr = []
-let currentQuestion = []
-let questionNumber = 0
+let answer1, answer2, answer3, answer4
+answer1 = document.querySelector("#a1")
+answer2 = document.querySelector("#a2")
+answer3 = document.querySelector("#a3")
+answer4 = document.querySelector("#a4")
 
 const fetchQuestionData = async section => {
-
   try {
-
     const response = await fetch(`http://localhost:3000/questions/${section}`)
     const data = await response.json()
-
     //current sections questions are pushed to an array so we can display them
-
     data.forEach(element => {
       questionArr.push(element)
     });
-
     displayQuestion(questionArr)
-    console.log(questionArr)
   } catch (err) {
     console.error(err)
   }
 }
-
-const startQuiz = () => {
-
+function startQuiz() {
   //set the current section to 1 so we know which area we're meant to be
   fetchQuestionData("section1")
 }
 
 
-
-const displayQuestion = (questions) => {
+const displayQuestion = questions => {
   let questionText = document.querySelector(".question")
-  let currentQuestion = questions[questionNumber]
+  currentQuestion = questions[questionNumber]
+  let answers = [currentQuestion.correctAnswer, currentQuestion.incorrectAnswers[0], currentQuestion.incorrectAnswers[1], currentQuestion.incorrectAnswers[2]]
+  questionText.textContent = currentQuestion.question
+  correctAnswer = currentQuestion.correctAnswer;
 
-
-  for (let i = questions.length - 1; i > 0; i--) {
-
-questionNumber++
-
-    questionText.textContent = currentQuestion.question
-
-    let corrPosition = Math.floor(Math.random() * 4)
-
-    //there's definitely a better way to do this
-
-    let answer1, answer2, answer3, answer4
-    answer1 = document.querySelector("#a1")
-    answer2 = document.querySelector("#a2")
-    answer3 = document.querySelector("#a3")
-    answer4 = document.querySelector("#a4")
-
-    if (corrPosition == 0) {
-      //answer 1 correct, 2,3,4 incorrect
-      answer1.textContent = currentQuestion.correctAnswer
-      answer2.textContent = currentQuestion.incorrectAnswers[0]
-      answer3.textContent = currentQuestion.incorrectAnswers[1]
-      answer4.textContent = currentQuestion.incorrectAnswers[2]
-    } else if (corrPosition == 1) {
-      //answer 2 correct, 1,3,4 incorrect
-      answer2.textContent = currentQuestion.correctAnswer
-      answer1.textContent = currentQuestion.incorrectAnswers[0]
-      answer3.textContent = currentQuestion.incorrectAnswers[1]
-      answer4.textContent = currentQuestion.incorrectAnswers[2]
-    } else if (corrPosition == 2) {
-      //answer 3 correct, 1,2,4 incorrect
-      answer3.textContent = currentQuestion.correctAnswer
-      answer2.textContent = currentQuestion.incorrectAnswers[0]
-      answer1.textContent = currentQuestion.incorrectAnswers[1]
-      answer4.textContent = currentQuestion.incorrectAnswers[2]
-    } else {
-      //answer 4 correct, 1,2,3 incorrect
-      answer4.textContent = currentQuestion.correctAnswer
-      answer2.textContent = currentQuestion.incorrectAnswers[0]
-      answer3.textContent = currentQuestion.incorrectAnswers[1]
-      answer1.textContent = currentQuestion.incorrectAnswers[2]
-    }
-  }
-
-
-
-
-
+  answer1.textContent = answers[0]
+  answer2.textContent = answers[1]
+  answer3.textContent = answers[2]
+  answer4.textContent = answers[3]
 }
 
 
-startQuizButton.addEventListener('click', (e) => {
 
-  startQuiz()
+startQuizButton.addEventListener('click', startQuiz())
 
+const doTheQuiz = () => {
+  if (questionNumber <= 9) {
+    displayQuestion(questionArr)
+  } else {
+    quizResults.style.display = 'flex'
+    questionBlock.style.display = 'none'
+  }
+}
+checkButton.addEventListener('click', () => {
+  console.log(questionNumber)
+  ++questionNumber
+  currentQuestionNumber.innerHTML = `#${questionNumber}`
+  questionNumberSpan.innerHTML = `(${questionNumber}/10)`
+  doTheQuiz()
 })
 
+const showQuiz = () => {
+  startQuizButton.addEventListener('click', () => {
+    mainPageButtonsBlock.style.display = 'none';
+    quizResults.style.display = 'none'
+    questionBlock.style.display = 'block'
+  })
+}
+showQuiz()
 
-
+//Design issues
 enterNameBlockButton.addEventListener('click', (e) => {
   e.preventDefault();
   let name = document.querySelector("#inputName").value
@@ -117,9 +98,4 @@ enterNameBlockButton.addEventListener('click', (e) => {
     enterNameBlock.style.display = 'none';
     document.querySelector("#inputName").value = '';
   }
-})
-
-startQuizButton.addEventListener('click', () => {
-  mainPageButtonsBlock.style.display = 'none';
-  questionBlock.style.display = 'block'
 })
