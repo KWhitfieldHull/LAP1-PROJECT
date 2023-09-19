@@ -18,6 +18,8 @@ let labels = document.querySelectorAll('.form-check-label')
 const nextButton = document.querySelector('#nextButton')
 const quizResultsImg = document.querySelector('#quizResultsImg')
 const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
+const categoriesBlock = document.querySelector('#categoriesBlock')
+const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 
 let questionArr = []
 let currentQuestion;
@@ -148,6 +150,7 @@ const showResults = () => {
     quizResultsText.textContent = `Congratulation, Username! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
+    quizResultsLead.textContent = 'Quiz Failed'
     quizResultsImg.src = 'assests/jacquard.jpg'
     quizResultsText.textContent = `You answered ${result}/10 question.\n Try harder next time!`
   }
@@ -174,13 +177,16 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
     document.querySelector("#inputName").value = '';
   }
 })
-
+ChooseCategoryButton.addEventListener('click', () => {
+  categoriesBlock.style.display = 'block';
+  MainPageButtonsBlock.style.display = 'none';
+})
 
 module.exports = {
-fetchQuestionData,
-displayQuestion,
-doTheQuiz,
-startQuiz,
-showQuiz
+  fetchQuestionData,
+  displayQuestion,
+  doTheQuiz,
+  startQuiz,
+  showQuiz
 
 }

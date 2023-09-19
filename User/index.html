@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-sm-5"></div>
         <div class="col-md-2 text-center">
-        <img src="assests/jacquard.jpg" alt="jacquard joseph" class="img-fluid headerImg">
+        <img src="assests/jacquard.png" alt="jacquard joseph" class="img-fluid headerImg">
         </div>
         <h1 class="display-3 text-bold text-center">~ History Quiz ~</h1>
         <div class="col-sm-5"></div>
@@ -53,7 +53,7 @@
         <div class="col-xl-4 col-lg-3 col-md-3"></div>
         <div class="col-xl-4 col-lg-6 col-md-6" id="mainPageButtons">
           <a class="btn btn-secondary btn-lg rounded-0" id="startQuizButton">Start Quiz</a>
-          <a class="btn btn-secondary btn-lg rounded-0" id="randomQuestionButton">Random</a>
+          <a class="btn btn-secondary btn-lg rounded-0" id="ChooseCategoryButton">Choose Category</a>
         </div>
         <div class="col-xl-4 col-lg-3 col-md-3"></div>
       </div>
@@ -120,7 +120,7 @@
     </section>
     <!-- End of Information Block -->
        <!-- categories block -->
-      <section id="informationBlock">
+      <section id="categoriesBlock" style="display:none">
         <div class="row g-3 my-5">
           <div class="col-md-4 col-6">
             <div class="card mx-4">
@@ -165,28 +165,6 @@
         </div>
     </div>
         </div>
-      
-          
-        <!-- <div class="row">
-          <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </section>
       <!-- End of categories Block -->
 
@@ -197,7 +175,7 @@
         <div class="col-md-4">
           <div class="d-flex justify-content-center align-items-center flex-column">
             <img id="quizResultsImg" src="assests/jacquard.jpg" alt="" class="img-fluid">
-            <p class="lead">Quiz Passed!</p>
+            <p id="quizResultsLead" class="lead">Quiz Passed!</p>
             <p id="quizResultsText">Congratulation, Username! You answered 9/10 question</p>
             <button type="button" class="btn btn-info" id="retakeTheQuiz">Retake The Quiz</button>
 
