@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-sm-5"></div>
         <div class="col-md-2 text-center">
-        <img src="assests/jacquard.jpg" alt="jacquard joseph" class="img-fluid headerImg">
+        <a href="."><img src="assests/jacquard.png" alt="jacquard joseph" class="img-fluid headerImg"></a>
         </div>
         <h1 class="display-3 text-bold text-center">~ History Quiz ~</h1>
         <div class="col-sm-5"></div>
@@ -53,7 +53,7 @@
         <div class="col-xl-4 col-lg-3 col-md-3"></div>
         <div class="col-xl-4 col-lg-6 col-md-6" id="mainPageButtons">
           <a class="btn btn-secondary btn-lg rounded-0" id="startQuizButton">Start Quiz</a>
-          <a class="btn btn-secondary btn-lg rounded-0" id="randomQuestionButton">Random</a>
+          <a class="btn btn-secondary btn-lg rounded-0" id="ChooseCategoryButton">Choose Category</a>
         </div>
         <div class="col-xl-4 col-lg-3 col-md-3"></div>
       </div>
@@ -120,90 +120,62 @@
     </section>
     <!-- End of Information Block -->
        <!-- categories block -->
-      <section id="informationBlock">
+      <section id="categoriesBlock" style="display:none">
         <div class="row g-3 my-5">
-          <div class="col-md-4 col-6">
-            <div class="card mx-4">
-                <img src="assests/medeval-pic.jpeg" class="card-img-top img-fit" alt="pic of japan">
+          <div class="col-md-4 col-sm-4">
+            <div class="card mx-1">
+                <img src="assests/medieval-pic.jpg" class="card-img-top img-fit" alt="pic of medieval">
                 <div class="card-body">
                     <h5 class="card-title">Medieval</h5>
-                    <p class="card-text">
-                      The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450.
-                    </p>
-                    <div class="text-end">
-                        <a href="https://en.wikipedia.org/wiki/Middle_Ages" class="btn btn-outline-primary" id="medievalQuiz">Learn More</a>
-                    </div>
+                    <!-- <p class="card-text">The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450.</p> -->
+                        <a class="btn btn-outline-primary w-100" id="medievalQuiz">Start Quiz</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-6">
-          <div class="card mx-4">
-              <img src="assests/middleages-pic.jpeg" class="card-img-top img-fit" alt="pic of japan">
+        <div class="col-md-4 col-sm-4">
+          <div class="card mx-1">
+              <img src="assests/revo.webp" class="card-img-top img-fit" alt="pic of middle ages">
               <div class="card-body">
-                  <h5 class="card-title">Middle Ages</h5>
-                  <p class="card-text">
-                    The period of European history extending from about 500 to 1400–1500 ce is traditionally known as the Middle Ages. The term was first used by 15th-century scholars to designate the period between their own time and the fall of the Western Roman Empire.
-                  </p>
-                  <div class="text-end">
-                      <a href="https://en.wikipedia.org/wiki/Middle_Ages" class="btn btn-outline-primary" id="middleAgeQuiz">Learn More</a>
-                  </div>
+                  <h5 class="card-title">Revolutions</h5>
+                  <!-- <p class="card-text">The period of European history extending from about 500 to 1400–1500 ce is traditionally known as the Middle Ages. The term was first used by 15th-century scholars to designate the period between their own time and the fall of the Western Roman Empire.</p> -->
+                      <a class="btn btn-outline-primary w-100" id="revolutionsQuiz">Start Quiz</a>
               </div>
           </div>
       </div>
-      <div class="col-md-4 col-6">
-        <div class="card mx-4">
-            <img src="assests/modern-period-pic.jpeg" class="card-img-top img-fit" alt="pic of japan">
+      <div class="col-md-4 col-sm-4">
+        <div class="card mx-1">
+            <img src="assests/modern-period-pic.jpeg" class="card-img-top img-fit" alt="pic of modern times">
             <div class="card-body">
                 <h5 class="card-title">Modern Period</h5>
-                <p class="card-text">
-                  The 1900s (pronounced "nineteen-hundreds") was a decade that began on 1 January 1900, and ended on 31 December 1909. The Edwardian era (1901–1910) covers a similar span of time.
-                </p>
-                <div class="text-end">
-                    <a href="https://en.wikipedia.org/wiki/Modern_era" class="btn btn-outline-primary" id="modernQuiz">Learn More</a>
-                </div>
+                <!-- <p class="card-text">The 1900s (pronounced "nineteen-hundreds") was a decade that began on 1 January 1900, and ended on 31 December 1909. The Edwardian era (1901–1910) covers a similar span of time.</p> -->
+                    <a class="btn btn-outline-primary w-100" id="modernQuiz">Start Quiz</a>
             </div>
         </div>
     </div>
         </div>
-      
-          
-        <!-- <div class="row">
-          <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </section>
       <!-- End of categories Block -->
 
     <!-- Quiz Results -->
-    <section id="quizResults" class="justify-content-center" style="display:none">
+    <section id="quizResults" class="justify-content-center mt-4 mb-5" style="display:none">
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-sm-3"></div>
+        <div class="col-md-6 col-sm-6">
           <div class="d-flex justify-content-center align-items-center flex-column">
             <img id="quizResultsImg" src="assests/jacquard.jpg" alt="" class="img-fluid">
-            <p class="lead">Quiz Passed!</p>
+            <p id="quizResultsLead" class="lead">Quiz Passed!</p>
             <p id="quizResultsText">Congratulation, Username! You answered 9/10 question</p>
-            <button type="button" class="btn btn-info" id="retakeTheQuiz">Retake The Quiz</button>
+            <div class="row">
+              
+                <button type="button" class="btn btn-info mb-4" id="retakeTheQuiz">Start Again</button>
+        
+                <a type="button" href="." class="btn btn-light mb-4" id="goToMainPage">To Main Page</a>
+              
+            </div>
 
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3 col-sm-3"></div>
       </div>
     </section>
     <!-- End of Quiz Results -->
