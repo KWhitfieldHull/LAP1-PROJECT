@@ -82,14 +82,6 @@ const checkSelected = () => allCheckBoxes.forEach((el) => {
       }
     }
   }
-}
-
-checkButton.addEventListener('click', () => {
-  console.log(questionNumber)
-  ++questionNumber
-  currentQuestionNumber.innerHTML = `#${questionNumber}`
-  questionNumberSpan.innerHTML = `(${questionNumber}/10)`
-  doTheQuiz()
 })
 
 //deselect checkboxes
