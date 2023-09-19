@@ -11,13 +11,13 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  res.send("Hello History API!");
+  res.status(200).send("Hello History API!");
 });
 
 //return all questions from a section
 
 app.get("/questions/section1", async (req, res) => {
-  questions = await (await fetch("https://the-trivia-api.com/api/questions?categories=history&limit=10&tags=medieval"))
+  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=medieval") // do not specify a limit, array defaults to 10 objects.
   qSection1 = await questions.json()
   res.send(qSection1)
 })
@@ -32,7 +32,7 @@ app.get("/questions/section3", async (req, res) => {
   const ww2Questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=world_war_2&limit=5")
   ww2Json = await ww2Questions.json()
 
-  qSection3 = ww1Json.concat(ww2Json) //Concatinating both the two different JSON files 
+  qSection3 = ww1Json.concat(ww2Json) // Concatenating both the two different JSON files 
   res.send(qSection3)
 })
 

@@ -134,7 +134,7 @@ nextButton.addEventListener('click', () => {
 //Show Quiz after clicking Start Quiz button
 startQuizButton.addEventListener('click', startQuiz())
 const showQuiz = () => {
-  startQuizButton.addEventListener('click', () => {
+  startQuizButton?.addEventListener('click', () => {
     mainPageButtonsBlock.style.display = 'none';
     quizResults.style.display = 'none'
     questionBlock.style.display = 'block'
@@ -159,7 +159,7 @@ retakeTheQuiz.addEventListener('click', () => {
 })
 
 //Design issues
-enterNameBlockButton.addEventListener('click', (e) => {
+enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the element exists, and if it does not exist the element is skipped (maybe)
   e.preventDefault();
   let name = document.querySelector("#inputName").value
   if (document.querySelector("#inputName").value == '') {
@@ -174,3 +174,13 @@ enterNameBlockButton.addEventListener('click', (e) => {
     document.querySelector("#inputName").value = '';
   }
 })
+
+
+module.exports = {
+fetchQuestionData,
+displayQuestion,
+doTheQuiz,
+startQuiz,
+showQuiz
+
+}
