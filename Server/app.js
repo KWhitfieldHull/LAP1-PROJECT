@@ -16,13 +16,19 @@ app.get("/", (req, res) => {
 
 //return all questions from a section
 
+app.get("/questions/all", async (req, res) => {
+  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=medieval,middle_ages,world_war_1,world_war_2,uk&limit=10") // do not specify a limit, array defaults to 10 objects.
+  qSection1 = await questions.json()
+  res.send(qSection1)
+})
+
 app.get("/questions/section1", async (req, res) => {
-  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=medieval") // do not specify a limit, array defaults to 10 objects.
+  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=medieval&limit=10") // do not specify a limit, array defaults to 10 objects.
   qSection1 = await questions.json()
   res.send(qSection1)
 })
 app.get("/questions/section2", async (req, res) => {
-  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=middle_ages")
+  questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=revolutions&limit=10")
   qSection2 = await questions.json()
   res.send(qSection2)
 })
