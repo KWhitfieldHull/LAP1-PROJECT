@@ -36,8 +36,8 @@
     <!-- Main Page -->
     <section id="enterNameBlock">
       <div class="row my-4">
-          <div class="col-md-4"></div>
-          <div class="col-md-4 py-3 enterNameBlockInputBlock bg-light">
+          <div class="col-lg-3 col-md-2 col-sm-1"></div>
+          <div class="col-lg-6 col-md-8 col-sm-10 py-3 enterNameBlockInputBlock bg-light">
             <form class="form-inline">
               <div class="form-group d-flex">
                 <input type="text" class="form-control rounded-0" id="inputName" placeholder="Enter your name">
@@ -45,17 +45,17 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-lg-3 col-md-2 col-sm-1"></div>
         </div>
     </section>
     <section class="my-4" id="mainPageButtonsBlock" style="display:none">
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-lg-4 col-md-4" id="mainPageButtons">
+        <div class="col-xl-4 col-lg-3 col-md-3"></div>
+        <div class="col-xl-4 col-lg-6 col-md-6" id="mainPageButtons">
           <a class="btn btn-secondary btn-lg rounded-0" id="startQuizButton">Start Quiz</a>
           <a class="btn btn-secondary btn-lg rounded-0" id="randomQuestionButton">Random</a>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-xl-4 col-lg-3 col-md-3"></div>
       </div>
     </section>
     <!-- End of Main Page -->
@@ -66,7 +66,9 @@
       <div class="row">
         <div class="col-md-3"></div>
           <div class="col-md-6">
-            <h3><span class="question">Who was the English king that was crowned in Westminster Abbey in 1066?</span> <span id="currentQuestionNumber">#1</span> <span id="questionNumberIterator">(1/10)</span></h3>
+            <h3><span class="question">Who was the English king that was crowned in Westminster Abbey in 1066?</span> 
+              <!-- <span id="currentQuestionNumber">#1</span> -->
+               <span id="questionNumberIterator">(1/10)</span></h3>
             <div id="answersList" class="my-4 h5">
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="answer" id="answer1" checked>
@@ -93,16 +95,19 @@
                 </label>
               </div>
             </div>
-            <div class="text-center"><button id="checkButton" type="button" class="btn btn-primary rounded-0">Check</button></div>
-
+            <div id="checkButtonBlock" class="text-center">
+              <button id="checkButton" type="button" class="btn btn-info w-25">Check</button>
+              <button id="nextButton" type="button" class="btn btn-info w-50" style="display: none">Next Question</button>
+            </div>
           </div>
         <div class="col-md-3"></div>
       </div>
     </section>
     <!-- End of Quiz Block -->
    <!-- Information Block -->
-    <section id="informationBlock" style="display: none;">
+    <section id="informationBlock" class="my-4" style="display: none;">
       <div class="row">
+        <hr>
         <div class="col-md-3"></div>
         <div class="col-md-2"><img id="informationBlockImg" src="assests/jacquard.jpg" class="img-fluid"></div>
         <div class="col-md-4">
@@ -191,10 +196,10 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
           <div class="d-flex justify-content-center align-items-center flex-column">
-            <img src="assests/jacquard.jpg" alt="" class="img-fluid">
+            <img id="quizResultsImg" src="assests/jacquard.jpg" alt="" class="img-fluid">
             <p class="lead">Quiz Passed!</p>
-            <p>Congratulation, Username! You answered 9/10 question</p>
-            <button type="button" class="btn btn-primary" id="retakeTheQuiz">Retake The Quiz</button>
+            <p id="quizResultsText">Congratulation, Username! You answered 9/10 question</p>
+            <button type="button" class="btn btn-info" id="retakeTheQuiz">Retake The Quiz</button>
 
           </div>
         </div>
