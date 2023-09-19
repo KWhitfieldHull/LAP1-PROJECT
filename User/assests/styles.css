@@ -24,3 +24,56 @@
     margin: .5em 0;
   }
 }
+
+/* add linear colors to background */
+body {
+  background: linear-gradient(45deg,#fff,#e9e8ee,#e8d9cb, #f0f5f4);
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+}
+
+/* gradually changes color from one css rule to other */
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.card .img-fit {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+/* makes all cards the same size */
+.card {
+  height: 100%;
+  transition: all 0.4s;
+}
+
+/* align all card buttons to the bottom of the body */
+.card-body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  
+}
+
+/* need this to align buttons inside card to align to bottom with paragraph */
+.card-text {
+  flex-grow: 1;
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+.section-img img{
+  height: 500px;
+  width: 400px;
+
+}
