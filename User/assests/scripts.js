@@ -35,11 +35,11 @@ const fetchQuestionData = async section => {
     console.error(err)
   }
 }
+
 function startQuiz() {
   //set the current section to 1 so we know which area we're meant to be
   fetchQuestionData("section1")
 }
-
 
 const displayQuestion = questions => {
   let questionText = document.querySelector(".question")
@@ -54,9 +54,7 @@ const displayQuestion = questions => {
   answer4.textContent = answers[3]
 }
 
-
-
-startQuizButton.addEventListener('click', startQuiz())
+startQuizButton?.addEventListener('click', startQuiz())
 
 const doTheQuiz = () => {
   if (questionNumber <= 9) {
@@ -66,7 +64,8 @@ const doTheQuiz = () => {
     questionBlock.style.display = 'none'
   }
 }
-checkButton.addEventListener('click', () => {
+
+checkButton?.addEventListener('click', () => {
   console.log(questionNumber)
   ++questionNumber
   currentQuestionNumber.innerHTML = `#${questionNumber}`
@@ -75,7 +74,7 @@ checkButton.addEventListener('click', () => {
 })
 
 const showQuiz = () => {
-  startQuizButton.addEventListener('click', () => {
+  startQuizButton?.addEventListener('click', () => {
     mainPageButtonsBlock.style.display = 'none';
     quizResults.style.display = 'none'
     questionBlock.style.display = 'block'
@@ -84,7 +83,7 @@ const showQuiz = () => {
 showQuiz()
 
 //Design issues
-enterNameBlockButton.addEventListener('click', (e) => {
+enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the element exists, and if it does not exist the element is skipped (maybe)
   e.preventDefault();
   let name = document.querySelector("#inputName").value
   if (document.querySelector("#inputName").value == '') {
@@ -99,3 +98,12 @@ enterNameBlockButton.addEventListener('click', (e) => {
     document.querySelector("#inputName").value = '';
   }
 })
+
+
+module.exports = {
+fetchQuestionData,
+displayQuestion,
+doTheQuiz,
+startQuiz
+
+}
