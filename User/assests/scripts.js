@@ -21,6 +21,10 @@ const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 
+const medievalQuiz = document.querySelector('#medievalQuiz')
+const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
+const modernQuiz = document.querySelector('#modernQuiz')
+
 let questionArr = []
 let currentQuestion;
 let questionNumber = 0;
@@ -34,8 +38,10 @@ answer2 = document.querySelector("#a2")
 answer3 = document.querySelector("#a3")
 answer4 = document.querySelector("#a4")
 
+
 const fetchQuestionData = async section => {
   try {
+    questionArr = []
     const response = await fetch(`http://localhost:3000/questions/${section}`)
     const data = await response.json()
     //current sections questions are pushed to an array so we can display them
@@ -47,10 +53,38 @@ const fetchQuestionData = async section => {
     console.error(err)
   }
 }
+startQuizButton.addEventListener('click', fetchQuestionData('all'))
 
-function startQuiz() {
-  //set the current section to 1 so we know which area we're meant to be
-  fetchQuestionData("section1")
+//medieval
+medievalQuiz.addEventListener('click', (e) => {
+  e.preventDefault()
+  fetchQuestionData('section1')
+  categoriesBlock.style.display = 'none';
+  quizResults.style.display = 'none'
+  questionBlock.style.display = 'block'
+})
+
+//revolutions
+revolutionsQuiz.addEventListener('click', (e) => {
+  e.preventDefault()
+  fetchQuestionData('section2')
+  categoriesBlock.style.display = 'none';
+  quizResults.style.display = 'none'
+  questionBlock.style.display = 'block'
+})
+
+//modern questions
+modernQuiz.addEventListener('click', (e) => {
+  e.preventDefault()
+  fetchQuestionData('section3')
+  categoriesBlock.style.display = 'none';
+  quizResults.style.display = 'none'
+  questionBlock.style.display = 'block'
+})
+
+
+function startQuiz(section) {
+  fetchQuestionData(section)
 }
 
 //display question
@@ -134,31 +168,34 @@ nextButton.addEventListener('click', () => {
 })
 
 //Show Quiz after clicking Start Quiz button
-startQuizButton.addEventListener('click', startQuiz())
-const showQuiz = () => {
-  startQuizButton?.addEventListener('click', () => {
-    mainPageButtonsBlock.style.display = 'none';
-    quizResults.style.display = 'none'
-    questionBlock.style.display = 'block'
-  })
-}
-showQuiz()
+startQuizButton?.addEventListener('click', () => {
+  mainPageButtonsBlock.style.display = 'none';
+  quizResults.style.display = 'none'
+  questionBlock.style.display = 'block'
+})
 
 //Results page
 const showResults = () => {
+  const name = localStorage.getItem('studentsName');
+  console.log(name)
   if (result >= 7) {
-    quizResultsText.textContent = `Congratulation, Username! You answered ${result}/10 question`
+    quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
     quizResultsLead.textContent = 'Quiz Failed'
-    quizResultsImg.src = 'assests/jacquard.jpg'
-    quizResultsText.textContent = `You answered ${result}/10 question.\n Try harder next time!`
+    quizResultsImg.src = 'assests/not-success.png'
+    quizResultsText.textContent = `${name}, you answered ${result}/10 question.\n Try harder next time!`
   }
   quizResults.style.display = 'flex'
   questionBlock.style.display = 'none'
 }
 retakeTheQuiz.addEventListener('click', () => {
-  startQuiz()
+  startQuiz('all');
+  quizResults.style.display = 'none'
+  questionBlock.style.display = 'block'
+  questionNumber = 0;
+  result = 0
+  questionNumberSpan.innerHTML = `(${questionNumber + 1}/10)`
 })
 
 //Design issues
