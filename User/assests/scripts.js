@@ -36,8 +36,6 @@ const startQuiz = () => {
 
   //set the current section to 1 so we know which area we're meant to be
   fetchQuestionData("section1")
-
-  //pop from array, do question, move to next
 }
 
 
