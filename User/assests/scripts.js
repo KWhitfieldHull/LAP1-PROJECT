@@ -24,6 +24,7 @@ const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
 const modernQuiz = document.querySelector('#modernQuiz')
+const yourName = document.querySelector('#yourName')
 
 let questionArr = []
 let currentQuestion;
@@ -37,7 +38,6 @@ answer1 = document.querySelector("#a1")
 answer2 = document.querySelector("#a2")
 answer3 = document.querySelector("#a3")
 answer4 = document.querySelector("#a4")
-
 
 const fetchQuestionData = async section => {
   try {
@@ -179,6 +179,7 @@ const showResults = () => {
   const name = localStorage.getItem('studentsName');
   console.log(name)
   if (result >= 7) {
+    quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
@@ -212,6 +213,8 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
     MainPageButtonsBlock.style.display = 'block';
     enterNameBlock.style.display = 'none';
     document.querySelector("#inputName").value = '';
+    console.log(localStorage.getItem('studentsName'))
+    yourName.textContent = `Hello, ${localStorage.getItem('studentsName')}!`
   }
 })
 ChooseCategoryButton.addEventListener('click', () => {
