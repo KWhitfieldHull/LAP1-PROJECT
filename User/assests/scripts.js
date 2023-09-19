@@ -24,7 +24,7 @@ const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
 const modernQuiz = document.querySelector('#modernQuiz')
-const yourName = document.querySelector('#yourName')
+const helpButton = document.querySelector("#helpButton")
 
 let questionArr = []
 let currentQuestion;
@@ -32,13 +32,14 @@ let questionNumber = 0;
 let correctAnswer;
 let result = 0;
 let yesOrNo;
-let currentCategory;
+let currectCategory
 
 let answer1, answer2, answer3, answer4
 answer1 = document.querySelector("#a1")
 answer2 = document.querySelector("#a2")
 answer3 = document.querySelector("#a3")
 answer4 = document.querySelector("#a4")
+
 
 const fetchQuestionData = async section => {
   currentCategory = section;
@@ -84,10 +85,10 @@ modernQuiz.addEventListener('click', (e) => {
   questionBlock.style.display = 'block'
 })
 
-
 function startQuiz(section) {
   fetchQuestionData(section)
 }
+const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
 
 //display question
 const displayQuestion = questions => {
@@ -122,6 +123,28 @@ const checkSelected = () => allCheckBoxes.forEach((el) => {
   }
 })
 
+
+const doesTagMatchCriteria = (jsonObject, searchCriteria) => {
+  const tags = jsonObject.tags;
+  return tags.some(tag => tag.toLowerCase() === searchCriteria.toLowerCase());
+}
+helpButton.addEventListener('click', (e) => {
+
+//get current question tag, open wiki to correct page
+if(doesTagMatchCriteria(currentQuestion, "medieval")){
+  helpButton.href="https://en.wikipedia.org/wiki/Middle_Ages"
+  console.log("here")
+} else if(doesTagMatchCriteria(currentQuestion, "revolutions")){
+  helpButton.href="https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+} else if(doesTagMatchCriteria(currentQuestion, "world_war_1")){
+  helpButton.href="https://en.wikipedia.org/wiki/World_War_I"
+} else if(doesTagMatchCriteria(currentQuestion, "world_war_2")) {
+  helpButton.href="https://en.wikipedia.org/wiki/World_War_II"
+} else{
+  helpButton.href= '#'
+}
+})
+
 //deselect checkboxes
 const deselectCheckboxes = () => {
   allCheckBoxes.forEach(el => {
@@ -133,7 +156,7 @@ const deselectCheckboxes = () => {
   allCheckBoxes[0].checked = true
 }
 //Random answers order
-const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
+
 
 //Question Iterator
 const doTheQuiz = () => {
@@ -147,7 +170,7 @@ const doTheQuiz = () => {
 }
 
 //Check button
-checkButton.addEventListener('click', () => {
+checkButton?.addEventListener('click', () => {
   checkSelected()
   if (!yesOrNo) {
     nextButton.style.display = 'inline'
@@ -161,7 +184,7 @@ checkButton.addEventListener('click', () => {
 })
 
 //Next button
-nextButton.addEventListener('click', () => {
+nextButton?.addEventListener('click', () => {
   nextButton.style.display = 'none'
   checkButton.style.display = 'inline'
   informationBlock.style.display = 'none'
@@ -181,7 +204,6 @@ const showResults = () => {
   const name = localStorage.getItem('studentsName');
   console.log(name)
   if (result >= 7) {
-    quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
@@ -215,8 +237,6 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
     MainPageButtonsBlock.style.display = 'block';
     enterNameBlock.style.display = 'none';
     document.querySelector("#inputName").value = '';
-    console.log(localStorage.getItem('studentsName'))
-    yourName.textContent = `Hello, ${localStorage.getItem('studentsName')}!`
   }
 })
 ChooseCategoryButton.addEventListener('click', () => {
