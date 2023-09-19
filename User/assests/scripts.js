@@ -35,6 +35,7 @@ const fetchQuestionData = async section => {
     console.error(err)
   }
 }
+
 function startQuiz() {
   //set the current section to 1 so we know which area we're meant to be
   fetchQuestionData("section1")
@@ -66,6 +67,7 @@ const doTheQuiz = () => {
     questionBlock.style.display = 'none'
   }
 }
+
 checkButton.addEventListener('click', () => {
   console.log(questionNumber)
   ++questionNumber

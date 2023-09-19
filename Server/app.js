@@ -32,7 +32,7 @@ app.get("/questions/section3", async (req, res) => {
   const ww2Questions = await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=world_war_2&limit=5")
   ww2Json = await ww2Questions.json()
 
-  qSection3 = ww1Json.concat(ww2Json) //Concatinating both the two different JSON files 
+  qSection3 = ww1Json.concat(ww2Json) //Concatenating both the two different JSON files 
   res.send(qSection3)
 })
 
