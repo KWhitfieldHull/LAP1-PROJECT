@@ -32,7 +32,7 @@ let questionNumber = 0;
 let correctAnswer;
 let result = 0;
 let yesOrNo;
-let currectCategory
+let currentCategory;
 
 let answer1, answer2, answer3, answer4
 answer1 = document.querySelector("#a1")
@@ -41,7 +41,7 @@ answer3 = document.querySelector("#a3")
 answer4 = document.querySelector("#a4")
 
 const fetchQuestionData = async section => {
-  currectCategory = section;
+  currentCategory = section;
   try {
     questionArr = []
     const response = await fetch(`http://localhost:3000/questions/${section}`)
@@ -193,7 +193,7 @@ const showResults = () => {
   questionBlock.style.display = 'none'
 }
 retakeTheQuiz.addEventListener('click', () => {
-  startQuiz(currectCategory);
+  startQuiz(currentCategory);
   quizResults.style.display = 'none'
   questionBlock.style.display = 'block'
   questionNumber = 0;
