@@ -104,6 +104,7 @@ module.exports = {
 fetchQuestionData,
 displayQuestion,
 doTheQuiz,
-startQuiz
+startQuiz,
+showQuiz
 
 }
