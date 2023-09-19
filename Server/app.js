@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 //return all questions from a section
 
 app.get("/questions/section1", async (req, res) => {
-  questions = await (await fetch("https://the-trivia-api.com/api/questions?categories=history&tags=medieval"))
+  questions = await (await fetch("https://the-trivia-api.com/api/questions?categories=history&limit=10&tags=medieval"))
   qSection1 = await questions.json()
   res.send(qSection1)
 })
