@@ -1,0 +1,26 @@
+[{
+  "medieval": {
+    "img": "assests/medieval-pic.jpeg",
+    "heading": "Medieval Times",
+    "text": "The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450.",
+    "href": "https://en.wikipedia.org/wiki/Middle_Ages"
+  },
+  "revolutions": {
+    "img": "assests/revo.webp",
+    "heading": "Revolutions",
+    "text": "In political science, a revolution is an attempt to achieve fundamental and relatively sudden change in political power and political organization. It typically involves a revolt against the government due to perceived oppression (political, social, economic) or political incompetence.",
+    "href": "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+  },
+  "world_war_1": {
+    "img": "assests/modern-period-pic.jpeg",
+    "heading": "World War I",
+    "text": "World War I (28 July 1914 – 11 November 1918), often abbreviated as WWI, was a global conflict fought between two coalitions, the Allied Powers and the Central Powers. Fighting took place throughout Europe, the Middle East, Africa, the Pacific, and parts of Asia.",
+    "href": "https://en.wikipedia.org/wiki/World_War_I"
+  },
+  "world_war_2": {
+    "img": "assests/modern-period-pic.jpeg",
+    "heading": "World War II",
+    "text": "World War II or the Second World War, often abbreviated as WWII or WW2, was a global conflict that lasted from 1939 to 1945. The vast majority of the world's countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis.",
+    "href": "https://en.wikipedia.org/wiki/World_War_II"
+  }
+}]
