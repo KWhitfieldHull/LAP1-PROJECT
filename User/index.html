@@ -34,9 +34,8 @@
   <main class="flex-shrink-0" id="mainPageBlock">
     <div class="container">
 
-      
-      <!-- Main Page -->
-    <section id="enterNameBlock" style="display:block">
+    <!-- Main Page -->
+    <section id="enterNameBlock" style="display:none">
       <div class="row my-4">
           <div class="col-lg-3 col-md-2 col-sm-1"></div>
           <div class="col-lg-6 col-md-8 col-sm-10 py-3 enterNameBlockInputBlock bg-light">
@@ -55,7 +54,7 @@
         <span id="yourName" class="mb-4"></span>
         <div class="col-xl-4 col-lg-3 col-md-3"></div>
         <div class="col-xl-4 col-lg-6 col-md-6" id="mainPageButtons">
-
+<span></span>
           <a class="btn btn-secondary btn-lg rounded-0" id="startQuizButton">Start Quiz</a>
           <a class="btn btn-secondary btn-lg rounded-0" id="ChooseCategoryButton">Choose Category</a>
         </div>
@@ -68,56 +67,50 @@
     <!-- Quiz Block -->
     <section id="questionBlock" style="display:none">
       <div class="row">
-        <div class="col-md-3"></div>
-          <div class="col-md-6">
-            <h3><span class="question">Who was the English king that was crowned in Westminster Abbey in 1066?</span> 
-              <!-- <span id="currentQuestionNumber">#1</span> -->
-               <span id="questionNumberIterator">(1/10)</span></h3>
-            <div id="answersList" class="my-4 h5">
+        <div class="col-md-2 col-sm-2 col-lg-3"></div>
+          <div class="col-md-6 col-sm-8 col-lg-6 d-flex flex-column" style="min-height:360px">
+            <h4 style="min-height: 60px;"><span class="question">Who was the English king that was crowned in Westminster Abbey in 1066?</span> 
+               <span id="questionNumberIterator">(1/10)</span></h4>
+            <div id="answersList" class="my-4 lead">
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="answer" id="answer1" checked>
-                <label class="form-check-label" for="answer1" id="a1">
+                <label class="form-check-label w-100" for="answer1" id="a1">
                   answer
                 </label>
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="answer" id="answer2">
-                <label class="form-check-label" for="answer2" id="a2">
+                <label class="form-check-label w-100" for="answer2" id="a2">
                   answer
                 </label>
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="answer" id="answer3">
-                <label class="form-check-label" for="answer3" id="a3">
+                <label class="form-check-label w-100" for="answer3" id="a3">
                   answer
                 </label>
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="answer" id="answer4">
-                <label class="form-check-label" for="answer4" id="a4">
+                <label class="form-check-label w-100" for="answer4" id="a4">
                   answer
                 </label>
               </div>
               
             </div>
-            <div id="checkButtonBlock" class="text-center">
-              <button id="checkButton" type="button" class="btn btn-info w-25">Check</button>
-              <button id="nextButton" type="button" class="btn btn-info w-50" style="display: none">Next Question</button>
+            <div id="checkButtonBlock" class="text-center mt-auto">
+              <button id="checkButton" type="button" class="btn btn-lg btn-info w-50">Check</button>
+              <button id="nextButton" type="button" class="btn btn-lg btn-info w-50" style="display: none">Next Question</button>
             </div>
           </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-2 col-sm-2 col-lg-3"></div>
       </div>
-      <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-2">
-          <a class="btn btn-secondary btn-lg rounded-0 my-5" href="#" target="_blank" id="helpButton">Get Help</a>
-        </div>
-        <div class="col-md-5"></div>
-      </div>
-
+      
 
     </section>
     <!-- End of Quiz Block -->
+
+
    <!-- Information Block -->
     <section id="informationBlock" class="my-4" style="display: none;">
       <div class="row">
@@ -127,7 +120,7 @@
         <div class="col-md-4">
           <h3 id="informationBlockHeading">Joseph Marie Jacquard</h3>
           <p id="informationBlockText">Joseph Marie Charles dit (called or nicknamed) Jacquard (French: [ʒakaʁ]; 7 July 1752 – 7 August 1834) was a French weaver and merchant. He played an important role in the development of the earliest programmable loom (the "Jacquard loom"), which in turn played an important role in the development of other programmable machines, such as an early version of digital compiler used by IBM to develop the modern day computer...</p>
-          <a id="informationBlockLink" href="#">Visit Wikipedia for more info ›</a>
+          <a id="informationBlockLink" target="_blank" href="#">Visit Wikipedia for more info ›</a>
         </div>
         <div class="col-md-3"></div>
       </div>
@@ -135,7 +128,7 @@
     <!-- End of Information Block -->
        <!-- categories block -->
       <section id="categoriesBlock" style="display:none">
-        <div class="row g-3 my-5">
+        <div class="row g-3 my-sm-5">
           <div class="col-md-4 col-sm-4">
             <div class="card mx-1">
                 <img src="assests/medieval-pic.jpg" class="card-img-top img-fit" alt="pic of medieval">
@@ -171,7 +164,7 @@
       <!-- End of categories Block -->
 
     <!-- Quiz Results -->
-    <section id="quizResults" class="justify-content-center mt-4 mb-5" style="display:none">
+    <section id="quizResults" class="justify-content-center mb-5" style="display:none">
       <div class="row">
         <div class="col-md-3 col-sm-3"></div>
         <div class="col-md-6 col-sm-6">
@@ -180,13 +173,9 @@
             <p id="quizResultsLead" class="lead">Quiz Passed!</p>
             <p id="quizResultsText">Congratulation, Username! You answered 9/10 question</p>
             <div class="row">
-              
                 <button type="button" class="btn btn-info mb-4" id="retakeTheQuiz">Start Again</button>
-        
-                <a type="button" href="." class="btn btn-light mb-4" id="goToMainPage">To Main Page</a>
-              
+                <a type="button" href="." class="btn btn-light mb-4" id="goToMainPage">Main Page</a>
             </div>
-
           </div>
         </div>
         <div class="col-md-3 col-sm-3"></div>

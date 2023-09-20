@@ -27,7 +27,7 @@
 
 /* add linear colors to background */
 body {
-  background: linear-gradient(45deg,#fff,#e9e8ee,#e8d9cb, #f0f5f4);
+  background: linear-gradient(45deg, #fff, #e9e8ee, #e8d9cb, #f0f5f4);
   background-size: 300% 300%;
   animation: color 12s ease-in-out infinite;
 }
@@ -37,9 +37,11 @@ body {
   0% {
     background-position: 0 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0 50%;
   }
@@ -49,6 +51,7 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+
 /* makes all cards the same size */
 .card {
   height: 100%;
@@ -60,7 +63,7 @@ body {
   display: flex;
   height: 100%;
   flex-direction: column;
-  
+
 }
 
 /* need this to align buttons inside card to align to bottom with paragraph */
@@ -72,8 +75,48 @@ body {
   transform: scale(1.08);
 }
 
-.section-img img{
+.section-img img {
   height: 500px;
   width: 400px;
 
+}
+
+/* #categoriesBlock {
+  opacity: 0;
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+} */
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0)
+  }
+
+  25% {
+    transform: translateX(5px)
+  }
+
+  50% {
+    transform: translateX(-5px)
+  }
+
+  75% {
+    transform: translateX(5px)
+  }
+
+  100% {
+    transform: translateX(0)
+  }
 }
