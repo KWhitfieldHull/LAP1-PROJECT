@@ -57,7 +57,6 @@ const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const yourName = document.querySelector('#yourName')
-const currentResultList = document.querySelector('#currentResultList ul')
 
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
@@ -164,6 +163,7 @@ const checkSelected = () => allCheckBoxes.forEach((el) => {
   if (el.checked) {
     for (let i = 0; i < labels.length; i++) {
       if (labels[i].htmlFor === el.id) {
+        console.log(correctAnswer)
         if (labels[i].innerHTML === correctAnswer) {
           result++
           yesOrNo = true
@@ -173,6 +173,14 @@ const checkSelected = () => allCheckBoxes.forEach((el) => {
           yesOrNo = false
           labels[i].style.color = 'red'
           labels[i].style.fontWeight = '700'
+
+          for (let j = 0; j < 4; j++) {
+            if (labels[j].innerHTML === correctAnswer) {
+              labels[j].style.color = 'green'
+              labels[j].style.fontWeight = '700'
+            }
+          }
+
         }
       }
     }
@@ -250,9 +258,8 @@ const doTheQuiz = () => {
 //Check button
 checkButton?.addEventListener('click', () => {
   checkSelected()
+  allCheckBoxes.forEach(el => el.disabled = true)
   if (!yesOrNo) {
-    //change information block to be relevant to the current question
-    //changes needed:    informationBlockHeading, informationBlockText, informationBlockLink href
     updateInfoSection()
     nextButton.style.display = 'inline'
     checkButton.style.display = 'none'
@@ -271,6 +278,7 @@ nextButton?.addEventListener('click', () => {
   checkButton.style.display = 'inline'
   informationBlock.style.display = 'none'
   doTheQuiz()
+  allCheckBoxes.forEach(el => el.disabled = false)
   deselectCheckboxes()
 })
 
@@ -286,14 +294,13 @@ startQuizButton?.addEventListener('click', () => {
 const showResults = () => {
   const name = localStorage.getItem('studentsName');
 
-   addNewResult(name, result)
   if (result >= 7) {
-    
+
     quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
-    
+
     quizResultsLead.textContent = 'Quiz Failed'
     quizResultsImg.src = 'assests/not-success.png'
     quizResultsText.textContent = `${name}, you answered ${result}/10 question.\n Try harder next time!`
@@ -301,9 +308,7 @@ const showResults = () => {
   quizResults.style.display = 'flex'
   questionBlock.style.display = 'none'
 
-  return passBool
 }
-
 
 retakeTheQuiz?.addEventListener('click', () => {
   startQuiz(currentCategory);
@@ -336,31 +341,11 @@ ChooseCategoryButton?.addEventListener('click', () => {
   MainPageButtonsBlock.style.display = 'none';
 })
 
-
-async function addNewResult(name, mark) {
-  const data = {
-    name: name,
-    mark: mark
-  }
-
-
-localStorage.setItem(data.name, data.mark)
-
-const items = {...localStorage}
-currentResultList.innerHTML = Object.entries(items).map(el => `<li>${el[0]}: ${el[1]}/10</li>`)
-//currentResultList.textContent = items
-
-  
-}
-
-
 module.exports = {
   fetchQuestionData,
   displayQuestion,
   doTheQuiz,
   startQuiz,
-
-  //new stuff to test
   showResults,
   updateInfoSection,
   doesTagMatchCriteria,
@@ -369,9 +354,3 @@ module.exports = {
   randomizeAnswersOrder,
   categoryQuiz,
 }
-
-
-
-
-
-
