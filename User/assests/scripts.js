@@ -58,7 +58,7 @@ const fetchQuestionData = async section => {
 
 //One of three categories
 const categoryQuiz = (element, section) => {
-  element.addEventListener('click', (e) => {
+  element?.addEventListener('click', (e) => {
     e.preventDefault()
     startQuiz(section)
     categoriesBlock.style.display = 'none';
@@ -71,7 +71,7 @@ categoryQuiz(revolutionsQuiz, 'section2')
 categoryQuiz(modernQuiz, 'section3')
 
 //Check is name already filled in
-window.addEventListener('load', () => {
+window?.addEventListener('load', () => {
   if (localStorage.getItem('studentsName')) {
     enterNameBlock.style.display = 'none'
     showQuizButtons()
@@ -97,13 +97,14 @@ const showQuizButtons = () => {
 }
 
 //Start Quiz button
-startQuizButton.addEventListener('click', fetchQuestionData('all'))
+startQuizButton?.addEventListener('click', fetchQuestionData('all'))
 
 function startQuiz(section) {
   fetchQuestionData(section)
 }
 //Random answers order
 const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
+
 
 //display question
 const displayQuestion = questions => {
@@ -120,7 +121,7 @@ const displayQuestion = questions => {
   answer4.textContent = randomizedAnswers[3]
 }
 
-//check selected answer if it's correct or not
+//check selected answer if it's correct or not, highlights the answer green or red.
 const checkSelected = () => allCheckBoxes.forEach((el) => {
   if (el.checked) {
     for (let i = 0; i < labels.length; i++) {
@@ -257,7 +258,7 @@ const showResults = () => {
   quizResults.style.display = 'flex'
   questionBlock.style.display = 'none'
 }
-retakeTheQuiz.addEventListener('click', () => {
+retakeTheQuiz?.addEventListener('click', () => {
   startQuiz(currentCategory);
   quizResults.style.display = 'none'
   questionBlock.style.display = 'block'
@@ -283,7 +284,7 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
   }
 })
 
-ChooseCategoryButton.addEventListener('click', () => {
+ChooseCategoryButton?.addEventListener('click', () => {
   categoriesBlock.style.display = 'block';
   MainPageButtonsBlock.style.display = 'none';
 })
@@ -293,5 +294,13 @@ module.exports = {
   displayQuestion,
   doTheQuiz,
   startQuiz,
-  showQuiz
+
+  //new stuff to test
+  showResults,
+  updateInfoSection,
+  doesTagMatchCriteria,
+  checkSelected,
+  showQuizButtons,
+  randomizeAnswersOrder,
+  categoryQuiz,
 }
