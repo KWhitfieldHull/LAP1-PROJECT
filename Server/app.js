@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const app = express();
-// const results = require("./results.json")
+const results = require("./results.json")
 
 let qSection1, qSection2, qSection3;
 
@@ -41,16 +41,17 @@ app.get("/questions/section3", async (req, res) => {
   qSection3 = ww1Json.concat(ww2Json) // Concatenating both the two different JSON files 
   res.send(qSection3)
 })
-// app.post("/results", (req, res) => {
-//   const newResult = req.body;
-//   if (newResult.name) {
-//     req.body.mark = newResult.mark;
-//   }
-//   req.body.name = newResult.name;
-//   req.body.mark = newResult.mark;
-//   res.status(201).send(newResult);
-// }
-// )
+
+app.post("/results", (req, res) => {
+  const newResult = req.body;
+  if (newResult.name) {
+    req.body.mark = newResult.mark;
+  }
+  req.body.name = newResult.name;
+  req.body.mark = newResult.mark;
+  res.status(201).send(newResult);
+}
+)
 
 
 

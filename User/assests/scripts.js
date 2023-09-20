@@ -52,15 +52,18 @@ let informationBlockLink = document.querySelector("#informationBlockLink")
 let labels = document.querySelectorAll('.form-check-label')
 const nextButton = document.querySelector('#nextButton')
 const quizResultsImg = document.querySelector('#quizResultsImg')
+const quizResultsLead = document.querySelector('#quizResultsLead')
 const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const yourName = document.querySelector('#yourName')
-const currentResultList = document.querySelector('#currentResultList')
+const currentResultList = document.querySelector('#currentResultList ul')
 
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
 const modernQuiz = document.querySelector('#modernQuiz')
+
+
 
 let questionArr = []
 let currentQuestion;
@@ -69,6 +72,8 @@ let correctAnswer;
 let result = 0;
 let yesOrNo;
 let currentCategory
+
+
 
 let answer1 = document.querySelector("#a1")
 let answer2 = document.querySelector("#a2")
@@ -238,7 +243,7 @@ const doTheQuiz = () => {
     displayQuestion(questionArr)
     questionNumberSpan.innerHTML = `(${questionNumber + 1}/10)`
   } else {
-    showResults()
+    showResults(result)
   }
 }
 
@@ -280,19 +285,26 @@ startQuizButton?.addEventListener('click', () => {
 //Results page
 const showResults = () => {
   const name = localStorage.getItem('studentsName');
-  // addNewResult(name, result)
+
+   addNewResult(name, result)
   if (result >= 7) {
+    
     quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
+    
     quizResultsLead.textContent = 'Quiz Failed'
     quizResultsImg.src = 'assests/not-success.png'
     quizResultsText.textContent = `${name}, you answered ${result}/10 question.\n Try harder next time!`
   }
   quizResults.style.display = 'flex'
   questionBlock.style.display = 'none'
+
+  return passBool
 }
+
+
 retakeTheQuiz?.addEventListener('click', () => {
   startQuiz(currentCategory);
   quizResults.style.display = 'none'
@@ -325,26 +337,21 @@ ChooseCategoryButton?.addEventListener('click', () => {
 })
 
 
-// async function addNewResult(name, mark) {
-//   const data = {
-//     name: name,
-//     mark: mark
-//   }
-//   const options = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(data)
-//   }
+async function addNewResult(name, mark) {
+  const data = {
+    name: name,
+    mark: mark
+  }
 
-//   const response = await fetch("http://localhost:3000/results", options);
-//   if (response.status == 201) {
-//     currentResultList.innerHTML += `${data.name}: ${data.mark}`;
-//   } else {
-//     ''
-//   }
-// }
+
+localStorage.setItem(data.name, data.mark)
+
+const items = {...localStorage}
+currentResultList.innerHTML = Object.entries(items).map(el => `<li>${el[0]}: ${el[1]}/10</li>`)
+//currentResultList.textContent = items
+
+  
+}
 
 
 module.exports = {
@@ -362,3 +369,9 @@ module.exports = {
   randomizeAnswersOrder,
   categoryQuiz,
 }
+
+
+
+
+
+

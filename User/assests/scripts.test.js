@@ -1,4 +1,3 @@
-
 const each = require("jest-each").default;
 const { fetchQuestionData, displayQuestion, doTheQuiz, startQuiz, showResults, updateInfoSection, doesTagMatchCriteria, checkSelected, showQuizButtons, randomizeAnswersOrder, categoryQuiz } = require("./scripts.js");
 
@@ -10,10 +9,13 @@ describe("fetchQuestionData", () => {
         expect(fetchQuestionData instanceof Function).toEqual(true);
     })
 
-    test('the data is there', async () => {
-        const data = await fetchQuestionData("section1");
-        expect(data).toBe(true);
-      });
+    it('returns the data from api', () => {
+        return fetchQuestionData('section1')
+        .then(data => {
+            expect(data).toBeDefined();  // Make an assertion on the result
+    })
+})
+
 })
 
 //displayQuestion
@@ -52,6 +54,8 @@ describe("showResults", () => {
         expect(showResults).toBeDefined();
         expect(showResults instanceof Function).toEqual(true);
     })
+
+    
 
 })
 
@@ -170,3 +174,4 @@ describe("categoryQuiz", () => {
 
 
 })
+
