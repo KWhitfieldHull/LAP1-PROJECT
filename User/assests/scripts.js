@@ -9,7 +9,13 @@ const quizResults = document.querySelector('#quizResults')
 const questionNumberSpan = document.querySelector('#questionNumberIterator')
 const quizResultsText = document.querySelector('#quizResultsText')
 let allCheckBoxes = document.querySelectorAll('.form-check-input')
+
 let informationBlock = document.querySelector('#informationBlock')
+let informationBlockImg = document.querySelector("#informationBlockImg")
+let informationBlockHeading = document.querySelector("#informationBlockHeading")
+let informationBlockText = document.querySelector("#informationBlockText")
+let informationBlockLink = document.querySelector("#informationBlockLink")
+
 let labels = document.querySelectorAll('.form-check-label')
 const nextButton = document.querySelector('#nextButton')
 const quizResultsImg = document.querySelector('#quizResultsImg')
@@ -17,7 +23,6 @@ const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const yourName = document.querySelector('#yourName')
-const helpButton = document.querySelector("#helpButton")
 
 
 const medievalQuiz = document.querySelector('#medievalQuiz')
@@ -138,22 +143,46 @@ const doesTagMatchCriteria = (jsonObject, searchCriteria) => {
   const tags = jsonObject.tags;
   return tags.some(tag => tag.toLowerCase() === searchCriteria.toLowerCase());
 }
-helpButton.addEventListener('click', (e) => {
 
-  //get current question tag, open wiki to correct page
+
+const updateInfoSection = () => {
   if (doesTagMatchCriteria(currentQuestion, "medieval")) {
-    helpButton.href = "https://en.wikipedia.org/wiki/Middle_Ages"
-    console.log("here")
-  } else if (doesTagMatchCriteria(currentQuestion, "revolutions")) {
-    helpButton.href = "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
-  } else if (doesTagMatchCriteria(currentQuestion, "world_war_1")) {
-    helpButton.href = "https://en.wikipedia.org/wiki/World_War_I"
-  } else if (doesTagMatchCriteria(currentQuestion, "world_war_2")) {
-    helpButton.href = "https://en.wikipedia.org/wiki/World_War_II"
-  } else {
-    helpButton.href = '#'
+
+    informationBlockImg.src="assests/medieval-pic.jpeg"
+    informationBlockHeading.textContent = "Medieval Times"
+    informationBlockText.textContent = "The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450."
+    informationBlockLink.href = "https://en.wikipedia.org/wiki/Middle_Ages"
   }
-})
+  else if (doesTagMatchCriteria(currentQuestion, "revolutions")) {
+
+    informationBlockImg.src="assests/revo.webp"
+    informationBlockHeading.textContent = "Revolutions"
+    informationBlockText.textContent = "In political science, a revolution is an attempt to achieve fundamental and relatively sudden change in political power and political organization. It typically involves a revolt against the government due to perceived oppression (political, social, economic) or political incompetence"
+    informationBlockLink.href = "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+
+  } else if (doesTagMatchCriteria(currentQuestion, "world_war_1")) {
+
+    informationBlockImg.src="assests/modern-period-pic.jpeg"
+    informationBlockHeading.textContent = "World War I"
+    informationBlockText.textContent = "World War I (28 July 1914 – 11 November 1918), often abbreviated as WWI, was a global conflict fought between two coalitions, the Allied Powers and the Central Powers. Fighting took place throughout Europe, the Middle East, Africa, the Pacific, and parts of Asia."
+    informationBlockLink.href = "https://en.wikipedia.org/wiki/World_War_I"
+
+  } else if (doesTagMatchCriteria(currentQuestion, "world_war_2")) {
+
+    informationBlockImg.src="assests/modern-period-pic.jpeg"
+    informationBlockHeading.textContent = "World War II"
+    informationBlockText.textContent = "World War II or the Second World War, often abbreviated as WWII or WW2, was a global conflict that lasted from 1939 to 1945. The vast majority of the world's countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis."
+    informationBlockLink.href = "https://en.wikipedia.org/wiki/World_War_II"
+
+  } else {
+    informationBlockImg.src=""
+    informationBlockHeading.textContent = ""
+    informationBlockText.textContent = ""
+    informationBlockLink.href = ""
+  }
+}
+
+
 
 //deselect checkboxes
 const deselectCheckboxes = () => {
@@ -183,6 +212,10 @@ checkButton?.addEventListener('click', () => {
   if (!yesOrNo) {
     nextButton.style.display = 'inline'
     checkButton.style.display = 'none'
+
+    //change information block to be relevant to the current question
+    //changes needed:    informationBlockHeading, informationBlockText, informationBlockLink href
+    updateInfoSection()
     informationBlock.style.display = 'flex'
   } else {
     nextButton.style.display = 'inline'
