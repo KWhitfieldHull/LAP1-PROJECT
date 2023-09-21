@@ -62,3 +62,36 @@ To start this quiz:
 * JEST
 * SuperTest
 * Trivia API
+
+
+## Process
+
+### Backend 
+
+* Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
+* Then created created the backend by fetching the data from the api
+* Then finding the relevant topics from the history api by using tags
+* Then created separated sections for each of the topics
+
+### HTML/CSS
+
+* Created relevant html tags with classes and IDs so that they can be used in the frontend code
+* Styled all the pages using the latest version of bootstrap - Version 5.3.1
+
+### Frontend
+
+* Created functionality for the buttons
+* Made sure a random selection of questions was supplied from the api
+* Made sure answers all had randomised positions
+* When check is clicked corrected answer was shown in green
+* When incorrect answer appeared red, along with correct answer appearing green
+* When incorrect a section appeared at the bottom of the screen that takes the user to the relevant Wikipedia article
+* Next button takes the user the next question
+* After ten questions the user receives a score
+* Options to do retake the quiz or go back to the homepage
+
+### Testing
+
+* Used JEST and Supertest to test the functionality of the backend
+* Supertest was used to make sure that the server was running as expected
+* checked that each section obtained the relevant information and returned an object
