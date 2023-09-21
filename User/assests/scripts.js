@@ -286,7 +286,7 @@ nextButton?.addEventListener('click', () => {
 
 //Show Quiz after clicking Start Quiz button
 startQuizButton?.addEventListener('click', () => {
-  document.querySelector('#fullContent').classList = ''
+  document.querySelector('#fullContent').classList = 'overflow-auto'
 
   mainPageButtonsBlock.style.display = 'none';
   quizResults.style.display = 'none'
