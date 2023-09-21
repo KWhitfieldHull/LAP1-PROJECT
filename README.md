@@ -48,14 +48,14 @@ To start this quiz:
 
 * If answer is incorrect, selected answer will appear red, along with the correct answer appearing green
 * If you want to research more on the topic, a link will appear at the bottom of the page
-* By clicking on link, user will be redirected to the relevant wikipedia article
+* By clicking on the link, the user will be redirected to the relevant wikipedia article
 * Once ready, click on next question and repeat the process
 
 
 #### End of Quiz
 
 * At the end of the quiz, result will be shown
-* If result greater than or equal to 7/10, quiz will be passed
+* If tne result is greater than or equal to 7/10, quiz will be passed
 * Otherwise quiz will be failed
 * You now can retake the quiz
 * Or return back to the home page 
@@ -79,9 +79,9 @@ To start this quiz:
 <img src="Img/Backend_image.png">
 
 * Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
-* Then created created the backend by fetching the data from the api
-* Then finding the relevant topics from the history api by using tags
-* Then created separated sections for each of the topics
+* Then created the backend by fetching the data from the api
+* We then found the relevant topics from the history api by using tags
+* Then we created separated sections for each of the topics
 
 ### HTML/CSS
 
@@ -96,10 +96,10 @@ To start this quiz:
 
 * Created functionality for the buttons
 * Made sure a random selection of questions was supplied from the api
-* Made sure answers all had randomised positions
-* When check is clicked corrected answer was shown in green
-* When incorrect answer appeared red, along with correct answer appearing green
-* When incorrect a section appeared at the bottom of the screen that takes the user to the relevant Wikipedia article
+* Made sure the answers had randomised positions
+* Made sure when check is clicked, if answer is correct, answer appears green
+* Made sure when answer is incorrect, incorrect answer appears red, along with correct answer appearing green
+* Made sure when answer is incorrect a section appears at the bottom of the screen that takes the user to the relevant Wikipedia article
 * Next button takes the user the next question
 * After ten questions the user receives a score
 * Options to do retake the quiz or go back to the homepage
