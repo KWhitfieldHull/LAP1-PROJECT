@@ -1,6 +1,6 @@
 # The Historian - A History Quiz
 
-![Picture of Jacquard](Jacquard.png)
+![Picture of Jacquard](Churchill.png)
 
 ## Description
 
@@ -9,7 +9,6 @@ Students have expressed a strong desire for a more engaging approach to learning
 ## Installation and Usage
 
 ### Installation
-
 To start this quiz:
 
 * In terminal git clone the repository to local machine
