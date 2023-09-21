@@ -46,4 +46,11 @@ describe('Endpoint testing', () => {
         });  
     })
 
+    it('/questions/all exists and returns correct data', async() => {
+        await request(app).get("/questions/all").then((res) => {
+            expect(res.body).toHaveLength(10);            
+            expect(res.body).toEqual(expect.arrayContaining([expect.any(Object)]))
+        });  
+    })
+
 })

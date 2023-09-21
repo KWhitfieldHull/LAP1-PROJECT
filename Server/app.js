@@ -2,7 +2,6 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
-
 let qSection1, qSection2, qSection3;
 
 app.use(cors());
@@ -41,8 +40,5 @@ app.get("/questions/section3", async (req, res) => {
   qSection3 = ww1Json.concat(ww2Json) //Concatenating both the two different JSON files 
   res.send(qSection3)
 })
-
-
-
 
 module.exports = app;

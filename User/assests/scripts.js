@@ -1,3 +1,36 @@
+const helpData = {
+  "medieval": {
+    "img": "assests/medieval-pic.jpg",
+    "heading": "Medieval Times",
+    "text": "The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450.",
+    "href": "https://en.wikipedia.org/wiki/Middle_Ages"
+  },
+  "revolutions": {
+    "img": "assests/revo.webp",
+    "heading": "Revolutions",
+    "text": "In political science, a revolution is an attempt to achieve fundamental and relatively sudden change in political power and political organization. It typically involves a revolt against the government due to perceived oppression (political, social, economic) or political incompetence.",
+    "href": "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+  },
+  "world_war_1": {
+    "img": "assests/modern-period-pic.jpeg",
+    "heading": "World War I",
+    "text": "World War I (28 July 1914 – 11 November 1918), often abbreviated as WWI, was a global conflict fought between two coalitions, the Allied Powers and the Central Powers. Fighting took place throughout Europe, the Middle East, Africa, the Pacific, and parts of Asia.",
+    "href": "https://en.wikipedia.org/wiki/World_War_I"
+  },
+  "world_war_2": {
+    "img": "assests/modern-period-pic.jpeg",
+    "heading": "World War II",
+    "text": "World War II or the Second World War, often abbreviated as WWII or WW2, was a global conflict that lasted from 1939 to 1945. The vast majority of the world's countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis.",
+    "href": "https://en.wikipedia.org/wiki/World_War_II"
+  },
+  "default": {
+    "img": "assests/success.png",
+    "heading": "History is Awesome!",
+    "text": "<blockquote><em>«Those that fail to learn from history are doomed to repeat it.»</em></blockquote><span class='d-flex justify-content-end'><b>Sir Winston Churchill</b></span>",
+    "href": "https://en.wikipedia.org/wiki/History_of_England"
+  }
+};
+
 const enterNameBlock = document.querySelector("#enterNameBlock");
 const enterNameBlockInput = document.querySelector("#enterNameBlock .enterNameBlockInputBlock");
 const enterNameBlockButton = document.querySelector("#enterNameBlock button");
@@ -19,15 +52,17 @@ let informationBlockLink = document.querySelector("#informationBlockLink")
 let labels = document.querySelectorAll('.form-check-label')
 const nextButton = document.querySelector('#nextButton')
 const quizResultsImg = document.querySelector('#quizResultsImg')
+const quizResultsLead = document.querySelector('#quizResultsLead')
 const retakeTheQuiz = document.querySelector('#retakeTheQuiz')
 const categoriesBlock = document.querySelector('#categoriesBlock')
 const ChooseCategoryButton = document.querySelector('#ChooseCategoryButton')
 const yourName = document.querySelector('#yourName')
 
-
 const medievalQuiz = document.querySelector('#medievalQuiz')
 const revolutionsQuiz = document.querySelector('#revolutionsQuiz')
 const modernQuiz = document.querySelector('#modernQuiz')
+
+
 
 let questionArr = []
 let currentQuestion;
@@ -36,6 +71,8 @@ let correctAnswer;
 let result = 0;
 let yesOrNo;
 let currentCategory
+
+
 
 let answer1 = document.querySelector("#a1")
 let answer2 = document.querySelector("#a2")
@@ -58,7 +95,7 @@ const fetchQuestionData = async section => {
 
 //One of three categories
 const categoryQuiz = (element, section) => {
-  element.addEventListener('click', (e) => {
+  element?.addEventListener('click', (e) => {
     e.preventDefault()
     startQuiz(section)
     categoriesBlock.style.display = 'none';
@@ -71,7 +108,7 @@ categoryQuiz(revolutionsQuiz, 'section2')
 categoryQuiz(modernQuiz, 'section3')
 
 //Check is name already filled in
-window.addEventListener('load', () => {
+window?.addEventListener('load', () => {
   if (localStorage.getItem('studentsName')) {
     enterNameBlock.style.display = 'none'
     showQuizButtons()
@@ -97,13 +134,14 @@ const showQuizButtons = () => {
 }
 
 //Start Quiz button
-startQuizButton.addEventListener('click', fetchQuestionData('all'))
+startQuizButton?.addEventListener('click', fetchQuestionData('all'))
 
 function startQuiz(section) {
   fetchQuestionData(section)
 }
 //Random answers order
 const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
+
 
 //display question
 const displayQuestion = questions => {
@@ -120,18 +158,29 @@ const displayQuestion = questions => {
   answer4.textContent = randomizedAnswers[3]
 }
 
-//check selected answer if it's correct or not
+//check selected answer if it's correct or not, highlights the answer green or red.
 const checkSelected = () => allCheckBoxes.forEach((el) => {
   if (el.checked) {
     for (let i = 0; i < labels.length; i++) {
       if (labels[i].htmlFor === el.id) {
+        console.log(correctAnswer)
         if (labels[i].innerHTML === correctAnswer) {
           result++
           yesOrNo = true
           labels[i].style.color = 'green'
+          labels[i].style.fontWeight = '700'
         } else {
           yesOrNo = false
           labels[i].style.color = 'red'
+          labels[i].style.fontWeight = '700'
+
+          for (let j = 0; j < 4; j++) {
+            if (labels[j].innerHTML === correctAnswer) {
+              labels[j].style.color = 'green'
+              labels[j].style.fontWeight = '700'
+            }
+          }
+
         }
       }
     }
@@ -144,41 +193,40 @@ const doesTagMatchCriteria = (jsonObject, searchCriteria) => {
   return tags.some(tag => tag.toLowerCase() === searchCriteria.toLowerCase());
 }
 
-
 const updateInfoSection = () => {
-  if (doesTagMatchCriteria(currentQuestion, "medieval")) {
-
-    informationBlockImg.src="assests/medieval-pic.jpeg"
-    informationBlockHeading.textContent = "Medieval Times"
-    informationBlockText.textContent = "The medieval era, often called The Middle Ages or the Dark Ages, began around 476 A.D. following a great loss of power throughout Europe by the Roman Emperor. The Middle Ages span roughly 1,000 years, ending between 1400 and 1450."
-    informationBlockLink.href = "https://en.wikipedia.org/wiki/Middle_Ages"
+  if (doesTagMatchCriteria(currentQuestion, "medieval") || doesTagMatchCriteria(currentQuestion, "middle_ages")) {
+    informationBlockImg.src = helpData.medieval.img
+    informationBlockHeading.textContent = helpData.medieval.heading
+    informationBlockText.textContent = helpData.medieval.text
+    informationBlockLink.href = helpData.medieval.href
   }
   else if (doesTagMatchCriteria(currentQuestion, "revolutions")) {
 
-    informationBlockImg.src="assests/revo.webp"
-    informationBlockHeading.textContent = "Revolutions"
-    informationBlockText.textContent = "In political science, a revolution is an attempt to achieve fundamental and relatively sudden change in political power and political organization. It typically involves a revolt against the government due to perceived oppression (political, social, economic) or political incompetence"
-    informationBlockLink.href = "https://en.wikipedia.org/wiki/List_of_revolutions_and_rebellions#1850%E2%80%931899"
+    informationBlockImg.src = helpData.revolutions.img
+    informationBlockHeading.textContent = helpData.revolutions.heading
+    informationBlockText.textContent = helpData.revolutions.text
+    informationBlockLink.href = helpData.revolutions.href
 
   } else if (doesTagMatchCriteria(currentQuestion, "world_war_1")) {
 
-    informationBlockImg.src="assests/modern-period-pic.jpeg"
-    informationBlockHeading.textContent = "World War I"
-    informationBlockText.textContent = "World War I (28 July 1914 – 11 November 1918), often abbreviated as WWI, was a global conflict fought between two coalitions, the Allied Powers and the Central Powers. Fighting took place throughout Europe, the Middle East, Africa, the Pacific, and parts of Asia."
-    informationBlockLink.href = "https://en.wikipedia.org/wiki/World_War_I"
+    informationBlockImg.src = helpData.world_war_1.img
+    informationBlockHeading.textContent = helpData.world_war_1.heading
+    informationBlockText.textContent = helpData.world_war_1.text
+    informationBlockLink.href = helpData.world_war_1.href
 
   } else if (doesTagMatchCriteria(currentQuestion, "world_war_2")) {
 
-    informationBlockImg.src="assests/modern-period-pic.jpeg"
-    informationBlockHeading.textContent = "World War II"
-    informationBlockText.textContent = "World War II or the Second World War, often abbreviated as WWII or WW2, was a global conflict that lasted from 1939 to 1945. The vast majority of the world's countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis."
-    informationBlockLink.href = "https://en.wikipedia.org/wiki/World_War_II"
+    informationBlockImg.src = helpData.world_war_2.img
+    informationBlockHeading.textContent = helpData.world_war_2.heading
+    informationBlockText.textContent = helpData.world_war_2.text
+    informationBlockLink.href = helpData.world_war_2.href
 
   } else {
-    informationBlockImg.src=""
-    informationBlockHeading.textContent = ""
-    informationBlockText.textContent = ""
-    informationBlockLink.href = ""
+    informationBlockImg.src = helpData.default.img
+    informationBlockHeading.textContent = helpData.default.heading
+    informationBlockText.innerHTML = helpData.default.text
+    informationBlockLink.href = helpData.default.href
+
   }
 }
 
@@ -190,6 +238,7 @@ const deselectCheckboxes = () => {
     el.checked = false;
     for (let i = 0; i < labels.length; i++) {
       labels[i].style.color = 'rgb(33, 37, 41)'
+      labels[i].style.fontWeight = '400'
     }
   });
   allCheckBoxes[0].checked = true
@@ -202,21 +251,20 @@ const doTheQuiz = () => {
     displayQuestion(questionArr)
     questionNumberSpan.innerHTML = `(${questionNumber + 1}/10)`
   } else {
-    showResults()
+    showResults(result)
   }
 }
 
 //Check button
 checkButton?.addEventListener('click', () => {
   checkSelected()
+  allCheckBoxes.forEach(el => el.disabled = true)
   if (!yesOrNo) {
+    updateInfoSection()
     nextButton.style.display = 'inline'
     checkButton.style.display = 'none'
 
-    //change information block to be relevant to the current question
-    //changes needed:    informationBlockHeading, informationBlockText, informationBlockLink href
-    updateInfoSection()
-    informationBlock.style.display = 'flex'
+    informationBlock.style.display = 'block'
   } else {
     nextButton.style.display = 'inline'
     checkButton.style.display = 'none'
@@ -230,6 +278,7 @@ nextButton?.addEventListener('click', () => {
   checkButton.style.display = 'inline'
   informationBlock.style.display = 'none'
   doTheQuiz()
+  allCheckBoxes.forEach(el => el.disabled = false)
   deselectCheckboxes()
 })
 
@@ -244,20 +293,24 @@ startQuizButton?.addEventListener('click', () => {
 //Results page
 const showResults = () => {
   const name = localStorage.getItem('studentsName');
-  console.log(name)
+
   if (result >= 7) {
+
     quizResultsLead.textContent = 'Quiz Passed!'
     quizResultsText.textContent = `Congratulation, ${name}! You answered ${result}/10 question`
     quizResultsImg.src = 'assests/success.png'
   } else {
+
     quizResultsLead.textContent = 'Quiz Failed'
     quizResultsImg.src = 'assests/not-success.png'
     quizResultsText.textContent = `${name}, you answered ${result}/10 question.\n Try harder next time!`
   }
   quizResults.style.display = 'flex'
   questionBlock.style.display = 'none'
+
 }
-retakeTheQuiz.addEventListener('click', () => {
+
+retakeTheQuiz?.addEventListener('click', () => {
   startQuiz(currentCategory);
   quizResults.style.display = 'none'
   questionBlock.style.display = 'block'
@@ -283,7 +336,7 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
   }
 })
 
-ChooseCategoryButton.addEventListener('click', () => {
+ChooseCategoryButton?.addEventListener('click', () => {
   categoriesBlock.style.display = 'block';
   MainPageButtonsBlock.style.display = 'none';
 })
@@ -293,5 +346,11 @@ module.exports = {
   displayQuestion,
   doTheQuiz,
   startQuiz,
-  showQuiz
+  showResults,
+  updateInfoSection,
+  doesTagMatchCriteria,
+  checkSelected,
+  showQuizButtons,
+  randomizeAnswersOrder,
+  categoryQuiz,
 }
