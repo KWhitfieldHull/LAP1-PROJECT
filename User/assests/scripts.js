@@ -84,7 +84,7 @@ const fetchQuestionData = async section => {
   currentCategory = section;
   try {
     questionArr = []
-    const response = await fetch(`https://localhost:3000/questions/${section}`)
+    const response = await fetch(`http://localhost:3000/questions/${section}`)
     const data = await response.json()
     //current sections questions are pushed to an array so we can display them
     data.forEach(element => questionArr.push(element));
@@ -166,7 +166,7 @@ const checkSelected = () => allCheckBoxes.forEach((el) => {
   if (el.checked) {
     for (let i = 0; i < labels.length; i++) {
       if (labels[i].htmlFor === el.id) {
-        
+
         if (labels[i].innerHTML === correctAnswer) {
           result++
           yesOrNo = true
