@@ -1,5 +1,5 @@
 # The Historian - A History Quiz
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Picture of Jacquard](Churchill.png)
 
 ## Description
@@ -96,4 +96,3 @@ To start this quiz:
 * Used JEST and Supertest to test the functionality of the backend
 * Supertest was used to make sure that the server was running as expected
 * checked that each section obtained the relevant information and returned an object
-![Alt text](image.png)
