@@ -42,6 +42,7 @@ const quizResults = document.querySelector('#quizResults')
 const questionNumberSpan = document.querySelector('#questionNumberIterator')
 const quizResultsText = document.querySelector('#quizResultsText')
 let allCheckBoxes = document.querySelectorAll('.form-check-input')
+let fullContent = document.querySelector('#fullContent')
 
 let informationBlock = document.querySelector('#informationBlock')
 let informationBlockImg = document.querySelector("#informationBlockImg")
@@ -126,7 +127,7 @@ const showQuizButtons = () => {
   MainPageButtonsBlock.style.animation = "fade-in 1s forwards";
   enterNameBlock.style.display = 'none';
   yourName.textContent = `Hello, ${localStorage.getItem('studentsName')}!`
-  resetName.innerHTML = ` (<a href="." id='changeNameLink'>change</a>)`
+  resetName.innerHTML = ` <span class="lead">(<a href='.' id='changeNameLink'>change</a>)</span>`
   yourName.appendChild(resetName)
   document.querySelector('#changeNameLink').addEventListener('click', () => {
     localStorage.removeItem('studentsName')
@@ -145,6 +146,7 @@ const randomizeAnswersOrder = (arr) => arr.sort(() => Math.random() - 0.5)
 
 //display question
 const displayQuestion = questions => {
+
   let questionText = document.querySelector(".question")
   currentQuestion = questions[questionNumber]
   let answers = [currentQuestion.correctAnswer, currentQuestion.incorrectAnswers[0], currentQuestion.incorrectAnswers[1], currentQuestion.incorrectAnswers[2]]
@@ -284,6 +286,8 @@ nextButton?.addEventListener('click', () => {
 
 //Show Quiz after clicking Start Quiz button
 startQuizButton?.addEventListener('click', () => {
+  document.querySelector('#fullContent').classList = ''
+
   mainPageButtonsBlock.style.display = 'none';
   quizResults.style.display = 'none'
   questionBlock.style.display = 'block'
@@ -337,6 +341,8 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
 })
 
 ChooseCategoryButton?.addEventListener('click', () => {
+  document.querySelector('#fullContent').classList = ''
+
   categoriesBlock.style.display = 'block';
   MainPageButtonsBlock.style.display = 'none';
 })

@@ -27,9 +27,12 @@
 
 /* add linear colors to background */
 body {
-  background: linear-gradient(45deg, #fff, #e9e8ee, #e8d9cb, #f0f5f4);
+  /* background: linear-gradient(45deg, #fff, #e9e8ee, #e8d9cb, #f0f5f4);
   background-size: 300% 300%;
-  animation: color 12s ease-in-out infinite;
+  animation: color 12s ease-in-out infinite; */
+  background: linear-gradient(320deg, #fffffff2, #e9e8eef2, #e8d9cbf2, #f0f5f4f2), url(../assests/medieval-pic.jpg) no-repeat 300% 300%;
+  animation: color 20s ease-in-out infinite;
+  background-size: cover;
 }
 
 /* gradually changes color from one css rule to other */
