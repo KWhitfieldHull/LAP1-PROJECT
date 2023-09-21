@@ -29,11 +29,11 @@ To start this quiz:
 
 * During the quiz a question will be presented to the user
 * User will have four answers to choose from, click on answer to select
-* After selection click on Check button to see if selected answer is correct
+* After selection, click on Check button to see if the selected answer is correct
 
 #### Correct
 
-* If correct answer will appear green
+* If answer is correct, answer will appear green
 * To move on, click on next question and repeat the process
 
 #### Incorrect
