@@ -1,5 +1,5 @@
 # The Historian - A History Quiz
-<img src="img/Churchill.png" width="400">
+<img src="Img/Churchill.png" width="400">
 <br></br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -76,7 +76,7 @@ To start this quiz:
 
 ### Backend
 
-<img src="img/Backend_image.png"></img>
+<img src="Img/Backend_image.png"></img>
 
 * Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
 * Then created created the backend by fetching the data from the api
@@ -85,14 +85,14 @@ To start this quiz:
 
 ### HTML/CSS
 
-<img src="img/Html_image.jpeg" width="750"></img>
+<img src="Img/Html_image.jpeg" width="750"></img>
 
 * Created relevant html tags with classes and IDs so that they can be used in the frontend code
 * Styled all the pages using the latest version of bootstrap - Version 5.3.1
 
 ### Frontend
 
-<img src="img/Frontend_image.png"></img>
+<img src="Img/Frontend_image.png"></img>
 
 * Created functionality for the buttons
 * Made sure a random selection of questions was supplied from the api
@@ -106,7 +106,7 @@ To start this quiz:
 
 ### Testing
 
-<img src="img/testing_image.png"></img>
+<img src="Img/testing_image.png"></img>
 
 * Used JEST and Supertest to test the functionality of the backend
 * Supertest was used to make sure that the server was running as expected
