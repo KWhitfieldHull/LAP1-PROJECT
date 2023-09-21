@@ -51,3 +51,14 @@ To start this quiz:
 * Otherwise quiz will be failed
 * You now can retake the quiz
 * Or return back to the home page 
+
+
+## Technologies 
+
+* Javascript
+* BootStrap 5.3.1
+* HTML/CSS
+* Express JS
+* JEST
+* SuperTest
+* Trivia API
