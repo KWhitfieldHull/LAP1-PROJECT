@@ -1,12 +1,14 @@
 # The Historian - A History Quiz
-<img src="Churchill.png" width="400" height="500">
+<img src="img/Churchill.png" width="400">
 <br></br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Created by - Bad Response Boys](https://img.shields.io/badge/Created_by-Bad_Response_Boys-2ea44f)](https://github.com/KWhitfieldHull/LAP1-PROJECT)
+[![version - 1.6](https://img.shields.io/badge/version-1.6-1081c2)](https://github.com/KWhitfieldHull/LAP1-PROJECT)
  
 ## Description
 
-<img src="Screenshot_homepage.png" width="800" height="400">
+<img src= "img/Homepage.png" width="800" height="400">
 
 Students have expressed a strong desire for a more engaging approach to learning non-STEM subjects. In response, this project has been developed with the primary goal of making learning enjoyable and interactive for all students. Specifically designed as a history quiz, our project is tailored to benefit key stage 3 students. Our aim is to reinforce the knowledge students acquire in their history lessons by presenting questions related to key subject areas. These topics encompass Medieval history, Revolutions, as well as World War 1 and World War 2.
 
@@ -15,10 +17,11 @@ Students have expressed a strong desire for a more engaging approach to learning
 ### Installation
 To start this quiz:
 
-* In terminal git clone the repository to local machine
-* In terminal npm install to have all the required packages
-* npm run start to start the server
-* In terminal run node ./User/Index.html
+* In terminal `git clone` the repository to local machine
+* In terminal `npm install` to have all the required packages
+* `npm run start` to start the server
+* In terminal run `node ./User/Index.html`
+* Possible in one line: `npm install && npm run start && node ./User/Index.html`
 
 ### Usage
 
@@ -73,6 +76,8 @@ To start this quiz:
 
 ### Backend
 
+<img src="img/Backend_image.png"></img>
+
 * Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
 * Then created created the backend by fetching the data from the api
 * Then finding the relevant topics from the history api by using tags
@@ -80,10 +85,14 @@ To start this quiz:
 
 ### HTML/CSS
 
+<img src="img/Html_image.jpeg" width="750"></img>
+
 * Created relevant html tags with classes and IDs so that they can be used in the frontend code
 * Styled all the pages using the latest version of bootstrap - Version 5.3.1
 
 ### Frontend
+
+<img src="img/Frontend_image.png"></img>
 
 * Created functionality for the buttons
 * Made sure a random selection of questions was supplied from the api
@@ -96,6 +105,8 @@ To start this quiz:
 * Options to do retake the quiz or go back to the homepage
 
 ### Testing
+
+<img src="img/testing_image.png"></img>
 
 * Used JEST and Supertest to test the functionality of the backend
 * Supertest was used to make sure that the server was running as expected

@@ -1,5 +1,4 @@
 const each = require("jest-each").default;
-const window = require("whatwg-fetch")
 const { text } = require("express");
 const app = require("./app.js")
 const request = require("supertest") // Another testing library, used for backend code. 
