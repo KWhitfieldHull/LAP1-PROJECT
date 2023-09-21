@@ -71,7 +71,7 @@ To start this quiz:
 
 ## Process
 
-### Backend 
+### Backend
 
 * Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
 * Then created created the backend by fetching the data from the api
