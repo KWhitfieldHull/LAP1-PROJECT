@@ -8,7 +8,7 @@
  
 ## Description
 
-<img src= "img/Homepage.png" width="800" height="400">
+<img src="Img/Homepage.png" width="800" height="400">
 
 Students have expressed a strong desire for a more engaging approach to learning non-STEM subjects. In response, this project has been developed with the primary goal of making learning enjoyable and interactive for all students. Specifically designed as a history quiz, our project is tailored to benefit key stage 3 students. Our aim is to reinforce the knowledge students acquire in their history lessons by presenting questions related to key subject areas. These topics encompass Medieval history, Revolutions, as well as World War 1 and World War 2.
 
@@ -76,7 +76,7 @@ To start this quiz:
 
 ### Backend
 
-<img src="Img/Backend_image.png"></img>
+<img src="Img/Backend_image.png">
 
 * Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
 * Then created created the backend by fetching the data from the api
@@ -85,14 +85,14 @@ To start this quiz:
 
 ### HTML/CSS
 
-<img src="Img/Html_image.jpeg" width="750"></img>
+<img src="Img/Html_image.jpeg" width="750">
 
 * Created relevant html tags with classes and IDs so that they can be used in the frontend code
 * Styled all the pages using the latest version of bootstrap - Version 5.3.1
 
 ### Frontend
 
-<img src="Img/Frontend_image.png"></img>
+<img src="Img/Frontend_image.png">
 
 * Created functionality for the buttons
 * Made sure a random selection of questions was supplied from the api
@@ -106,7 +106,7 @@ To start this quiz:
 
 ### Testing
 
-<img src="Img/testing_image.png"></img>
+<img src="Img/testing_image.png">
 
 * Used JEST and Supertest to test the functionality of the backend
 * Supertest was used to make sure that the server was running as expected
