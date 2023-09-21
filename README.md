@@ -1,6 +1,6 @@
 # The Historian - A History Quiz
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Picture of Jacquard](Churchill.png)
+![Picture of Jacquard](Churchill.png = 250x250)
 
 ## Description
 
