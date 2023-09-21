@@ -3,6 +3,18 @@
   justify-content: space-between;
 }
 
+.btn-main {
+  background-color: #ddc8b2;
+}
+
+.bg-mainForm {
+  background-color: #e9e3d7
+}
+
+.bg-mainFormButton {
+  background-color: #754f40c7;
+  border: 0;
+}
 
 @media (max-width: 576px) {
   .headerImg {
