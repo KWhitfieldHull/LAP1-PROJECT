@@ -27,11 +27,11 @@ To start this quiz:
 
 <img src="Img/Homepage.png" width="800" height="400">
 
-* On home page input your name
-* You will now have a choice of starting a random quiz or choosing a category
-* If you click start quiz, a random selection of questions from all topics will be presented
-* If you click choose category, the list of topics will be presented
-* After choosing a topic, a quiz will be presented only containing questions from the selected topic
+* Begin by entering your name on the homepage
+* You will then be given the option to either initiate a random quiz or select a specific category
+* Opting for the "Start Quiz" button will result in a set of random questions from various topics being presented
+* If you choose the "Select Category" option, a list of available topics will be displayed
+* Upon selecting a particular topic, a quiz containing questions solely from that chosen category will be presented
 
 #### Quiz
 
