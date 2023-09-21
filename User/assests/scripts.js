@@ -89,7 +89,7 @@ const fetchQuestionData = async section => {
     //current sections questions are pushed to an array so we can display them
     data.forEach(element => questionArr.push(element));
 
-    if(section == "all"){
+    if (section == "all") {
       console.log(questionArr)
     }
 
@@ -346,7 +346,7 @@ enterNameBlockButton?.addEventListener('click', (e) => { // ? checks if the elem
 })
 
 ChooseCategoryButton?.addEventListener('click', () => {
-  document.querySelector('#fullContent').classList = ''
+  document.querySelector('#fullContent').classList = 'overflow-auto'
 
   categoriesBlock.style.display = 'block';
   MainPageButtonsBlock.style.display = 'none';
