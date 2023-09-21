@@ -84,7 +84,7 @@ const fetchQuestionData = async section => {
   currentCategory = section;
   try {
     questionArr = []
-    const response = await fetch(`https://historian.onrender.com/questions/${section}`)
+    const response = await fetch(`https://localhost:3000/questions/${section}`)
     const data = await response.json()
     //current sections questions are pushed to an array so we can display them
     data.forEach(element => questionArr.push(element));
