@@ -88,6 +88,11 @@ const fetchQuestionData = async section => {
     const data = await response.json()
     //current sections questions are pushed to an array so we can display them
     data.forEach(element => questionArr.push(element));
+
+    if(section == "all"){
+      console.log(questionArr)
+    }
+
     displayQuestion(questionArr)
   } catch (err) {
     console.error(err)
