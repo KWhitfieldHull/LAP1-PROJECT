@@ -16,10 +16,10 @@ Students have expressed a strong desire for a more engaging approach to learning
 To start this quiz:
 
 * In terminal `git clone` the repository to local machine
+* In terminal `cd LAP1-PROJECT` to enter the required server
 * In terminal `npm install` to have all the required packages
 * `npm run start` to start the server
-* In terminal run `node ./User/Index.html`
-* Possible in one line: `npm install && npm run start && node ./User/Index.html`
+* On the index.html file, right-click and open live server
 
 ### Usage
 
