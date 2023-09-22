@@ -75,10 +75,10 @@ To start this quiz:
 
 <img src="Img/Backend_image.png">
 
-* Began by trying to find a trivia api with history questions: https://the-trivia-api.com/api/questions?categories=history
-* Then created the backend by fetching the data from the api
-* We then found the relevant topics from the history api by using tags
-* Then we created separated sections for each of the topics
+* We initiated the process by searching for a trivia API that offers history-related questions at the following URL: https://the-trivia-api.com/api/questions?categories=history
+* Following that, we established the backend functionality by retrieving data from the API
+* Next, we identified the pertinent topics from the history API by utilising tags
+* Subsequently, we organised distinct sections for each of these topics
 
 ### HTML/CSS
 
