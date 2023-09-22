@@ -1,5 +1,30 @@
 * {
   font-family: 'Cormorant Garamond', serif;
+
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+label, #informationBlockLink {
+  font-size: 1.5rem;
+}
+
+#informationBlockHeading {
+  font-size: 2rem;
+}
+
+p, #inputName, .bg-mainFormButton, .btn-main, .btn-info, #goToMainPage {
+  font-size: 24px;
+}
+
+.bg-mainFormButton {
+  color: white;
+}
+
+.bg-mainFormButton:hover {
+  background-color: #ddc8b2
 }
 
 #mainPageButtons {
@@ -9,6 +34,11 @@
 
 .btn-main {
   background-color: #ddc8b2;
+}
+
+.btn-main:hover {
+  background-color: #754f40c7;
+  color: white
 }
 
 .bg-mainForm {
@@ -27,9 +57,7 @@
 }
 
 @media (max-width: 768px) {
-  .headerImg {
-    width: 25%;
-  }
+
 
   #mainPageButtons {
     flex-direction: column;
