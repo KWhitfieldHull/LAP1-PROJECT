@@ -38,7 +38,6 @@ To start this quiz:
 * Within the quiz, a question will be shown to the user
 * The user will be presented with four answer choices and can click on one to make their selection
 * After making a selection, they should click the "Check" button to verify if the chosen answer is correct
-
 * When the answer is correct, it will be displayed in a green color
 * To proceed, simply click the "Next Question" button and repeat the same process
 
