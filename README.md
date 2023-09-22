@@ -35,30 +35,27 @@ To start this quiz:
 
 #### Quiz
 
-* During the quiz a question will be presented to the user
-* User will have four answers to choose from, click on answer to select
-* After selection, click on Check button to see if the selected answer is correct
+* Within the quiz, a question will be shown to the user
+* The user will be presented with four answer choices and can click on one to make their selection
+* After making a selection, they should click the "Check" button to verify if the chosen answer is correct
 
-#### Correct
-
-* If answer is correct, answer will appear green
-* To move on, click on next question and repeat the process
+* When the answer is correct, it will be displayed in a green color
+* To proceed, simply click the "Next Question" button and repeat the same process
 
 #### Incorrect
 
-* If answer is incorrect, selected answer will appear red, along with the correct answer appearing green
-* If you want to research more on the topic, a link will appear at the bottom of the page
-* By clicking on the link, the user will be redirected to the relevant wikipedia article
-* Once ready, click on next question and repeat the process
+* In the event of an incorrect answer, the chosen response will be highlighted in red, while the correct answer will be displayed in green
+* If you wish to explore the topic further, a link will be available at the bottom of the page
+* By clicking on the provided link, you will be directed to the relevant Wikipedia article for additional information
+* When you're prepared, click the "Next Question" button to proceed and continue the process
 
 
 #### End of Quiz
 
-* At the end of the quiz, result will be shown
-* If tne result is greater than or equal to 7/10, quiz will be passed
-* Otherwise quiz will be failed
-* You now can retake the quiz
-* Or return back to the home page 
+* After completing the quiz, your results will be displayed
+* If your score is 7/10 or higher, you will pass the quiz
+* If your score is below 7/10, the quiz will be considered failed
+* At this point, you have the option to either retake the quiz or return to the homepage
 
 
 ## Technologies 
