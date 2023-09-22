@@ -11,11 +11,10 @@ describe("fetchQuestionData", () => {
 
     it('returns the data from api', () => {
         return fetchQuestionData('section1')
-        .then(data => {
-            expect(data).toBeDefined();  // Make an assertion on the result
+            .then(data => {
+                expect(data).toBeDefined();  // Make an assertion on the result
+            })
     })
-})
-
 })
 
 //displayQuestion
@@ -55,7 +54,7 @@ describe("showResults", () => {
         expect(showResults instanceof Function).toEqual(true);
     })
 
-    
+
 
 })
 
@@ -166,12 +165,6 @@ describe("categoryQuiz", () => {
         expect(categoryQuiz).toBeDefined();
         expect(categoryQuiz instanceof Function).toEqual(true);
     })
-
-    // it("Returns a function when called", () => {
-    //     expect(typeof categoryQuiz() == "object").toEqual(true);
-    // })
-
-
 
 })
 

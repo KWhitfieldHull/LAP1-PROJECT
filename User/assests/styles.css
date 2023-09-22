@@ -7,7 +7,8 @@ h4 {
   font-size: 2rem;
 }
 
-label, #informationBlockLink {
+label,
+#informationBlockLink {
   font-size: 1.5rem;
 }
 
@@ -15,7 +16,12 @@ label, #informationBlockLink {
   font-size: 2rem;
 }
 
-p, #inputName, .bg-mainFormButton, .btn-main, .btn-info, #goToMainPage {
+p,
+#inputName,
+.bg-mainFormButton,
+.btn-main,
+.btn-info,
+#goToMainPage {
   font-size: 24px;
 }
 
