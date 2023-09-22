@@ -19,7 +19,7 @@ To start this quiz:
 * In terminal `cd LAP1-PROJECT` to enter the required server
 * In terminal `npm install` to have all the required packages
 * `npm run start` to start the server
-* On the index.html file, right-click and open live server
+* In the User folder, find the index.html file, right-click and open live server
 
 ### Usage
 
